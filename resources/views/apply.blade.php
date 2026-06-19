@@ -143,7 +143,22 @@
                 </div>
 
                 <div class="hero-grid">
-                    <div class="hero-copy hero-content glass-card" data-tilt data-depth="18" data-z="42">
+                    <aside class="hero-panel glass-card" data-tilt data-depth="26" data-z="96" data-reveal>
+                        <div class="panel-halo"></div>
+                        <p class="panel-label">رؤيتنا الاستراتيجية</p>
+                        <h2>من مجرد صفحة صامتة إلى آلة أرباح تعمل على مدار الساعة.</h2>
+                        <p>
+                            نحن لا نصمم مواقع عادية. نبني أنظمة رقمية متكاملة تقنع العميل وتؤهله وتضعه في قائمة الانتظار تلقائياً — دون أن تتدخل.
+                        </p>
+                        <div class="panel-bullets">
+                            <div>✦ تصاميم سينمائية فائقة التأثير والتحويل</div>
+                            <div>↗ أتمتة AI تعمل 24/7 بدلاً عنك</div>
+                            <div>◎ أرقام حقيقية وعائد استثماري موثق</div>
+                            <div>⚡ تسليم خلال 7-21 يوماً فقط</div>
+                        </div>
+                    </aside>
+
+                    <div class="hero-copy glass-card" data-tilt data-depth="18" data-z="42">
                         <p class="eyebrow" data-reveal>Elite Digital Systems · Red Sea Digital Pro</p>
                         <h1 class="hero-title" data-reveal data-reveal-stagger>
                             أنظمة رقمية تضاعف
@@ -183,21 +198,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <aside class="hero-panel glass-card mobile-only-panel" data-tilt data-depth="26" data-z="96" data-reveal>
-                        <div class="panel-halo"></div>
-                        <p class="panel-label">رؤيتنا الاستراتيجية</p>
-                        <h2>من مجرد صفحة صامتة إلى آلة أرباح تعمل على مدار الساعة.</h2>
-                        <p>
-                            نحن لا نصمم مواقع عادية. نبني أنظمة رقمية متكاملة تقنع العميل وتؤهله وتضعه في قائمة الانتظار تلقائياً — دون أن تتدخل.
-                        </p>
-                        <div class="panel-bullets">
-                            <div>✦ تصاميم سينمائية فائقة التأثير والتحويل</div>
-                            <div>↗ أتمتة AI تعمل 24/7 بدلاً عنك</div>
-                            <div>◎ أرقام حقيقية وعائد استثماري موثق</div>
-                            <div>⚡ تسليم خلال 7-21 يوماً فقط</div>
-                        </div>
-                    </aside>
                 </div>
                 <div class="hero-mobile-proof social-proof mobile-only" data-reveal>
                     <div>

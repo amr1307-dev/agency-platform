@@ -445,8 +445,8 @@ main { position: relative; z-index: 1; }
     position: relative;
     z-index: 4;
     display: grid;
-    grid-template-columns: minmax(0, 1.08fr) minmax(330px, 0.72fr);
-    gap: 20px;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 48px;
     align-items: center;
     padding: 44px;
     width: min(1200px, 92vw);
@@ -460,12 +460,29 @@ main { position: relative; z-index: 1; }
     transition: transform 120ms linear;
 }
 
+@media (max-width: 1120px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+}
+
 .glass-card {
     border-radius: 32px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(38, 38, 38, 0.6);
     background: rgba(5, 5, 5, 0.42);
     backdrop-filter: blur(22px);
     box-shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
+}
+
+.service-card,
+.bento-card,
+.case-card,
+.faq-item,
+.process-step,
+.form-shell,
+.section-directive {
+    border: 1px solid rgba(38, 38, 38, 0.6);
 }
 
 .hero-copy,
@@ -484,15 +501,9 @@ main { position: relative; z-index: 1; }
     padding: 36px;
     transform: translateZ(52px);
     width: 100%;
-}
-
-.hero-content {
-    width: min(1200px, 92vw);
-    margin: auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    text-align: right;
 }
 
 .eyebrow,
@@ -501,21 +512,18 @@ main { position: relative; z-index: 1; }
 .case-tag {
     color: var(--accent);
     text-transform: uppercase;
-    letter-spacing: 0.14em;
     font-size: 0.78rem;
 }
 
 .hero-title {
-    max-width: 850px;
+    max-width: 100%;
     font-size: clamp(42px, 6vw, 72px);
-    line-height: 1.12;
-    letter-spacing: -0.03em;
+    line-height: 1.4;
     display: block;
-    margin-inline: auto;
-    text-align: center;
+    text-align: right;
     white-space: normal;
     word-break: normal;
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: 'IBM Plex Sans Arabic', 'Cairo', 'Tajawal', sans-serif;
     font-weight: 800;
     margin: 10px 0 16px;
 }
@@ -526,11 +534,12 @@ main { position: relative; z-index: 1; }
 }
 
 .hero-subtitle {
-    max-width: 720px;
-    margin: auto;
+    max-width: 100%;
+    margin: 0;
     font-size: 20px;
     line-height: 1.8;
     opacity: 0.88;
+    text-align: right;
 }
 
 .hero-text {
@@ -561,7 +570,7 @@ main { position: relative; z-index: 1; }
 
 .hero-actions {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 16px;
     flex-wrap: wrap;
@@ -696,7 +705,11 @@ main { position: relative; z-index: 1; }
 }
 
 .section {
-    margin-top: 48px;
+    margin-top: 96px;
+}
+
+.section:first-of-type {
+    margin-top: 0;
 }
 
 .section-gallery,
@@ -705,11 +718,11 @@ main { position: relative; z-index: 1; }
 }
 
 .section-gallery {
-    margin-top: 72px;
+    margin-top: 96px;
 }
 
 .section-testimonials {
-    margin-top: 58px;
+    margin-top: 96px;
 }
 
 .section-philosophy {
@@ -731,14 +744,13 @@ main { position: relative; z-index: 1; }
 .section-directive h2,
 .form-copy h3,
 .case-copy h3 {
-    font-family: 'Playfair Display', Georgia, serif;
-    letter-spacing: -0.04em;
+    font-family: 'IBM Plex Sans Arabic', 'Cairo', 'Tajawal', sans-serif;
 }
 
 .section-heading h2 {
     margin: 0;
     font-size: clamp(2rem, 4vw, 3.75rem);
-    line-height: 1.02;
+    line-height: 1.35;
 }
 
 .section-heading p,
@@ -1345,7 +1357,6 @@ main { position: relative; z-index: 1; }
 }
 
 @media (max-width: 1120px) {
-    .hero-grid,
     .case-track,
     .section-directive {
         grid-template-columns: 1fr;
@@ -1449,7 +1460,6 @@ main { position: relative; z-index: 1; }
         background: rgba(0, 229, 255, 0.08);
         border: 1px solid rgba(0, 229, 255, 0.16);
         font-size: 0.76rem;
-        letter-spacing: 0.14em;
         text-transform: uppercase;
     }
 
@@ -1584,7 +1594,7 @@ main { position: relative; z-index: 1; }
     }
 
     .section:not(.hero) {
-        margin-top: 42px;
+        margin-top: 56px;
     }
 
     .section-heading {
@@ -1592,7 +1602,7 @@ main { position: relative; z-index: 1; }
     }
 
     .section-gallery {
-        margin-top: 48px;
+        margin-top: 56px;
     }
 }
 
@@ -1601,9 +1611,9 @@ main { position: relative; z-index: 1; }
         padding: 22px;
     }
 
-    .hero-copy h1 {
-        font-size: clamp(3.15rem, 16vw, 4.8rem);
-        line-height: 0.96;
+    .hero-title {
+        font-size: clamp(2rem, 10vw, 3.2rem);
+        line-height: 1.4;
     }
 
     .hero-actions {
@@ -1649,7 +1659,7 @@ main { position: relative; z-index: 1; }
     }
 
     .section-gallery {
-        margin-top: 34px;
+        margin-top: 42px;
     }
 
     .case-card,
@@ -1721,7 +1731,6 @@ main { position: relative; z-index: 1; }
     border: 1px solid rgba(0, 229, 255, 0.28);
     color: var(--accent);
     font-size: 0.72rem;
-    letter-spacing: 0.1em;
     text-transform: uppercase;
     font-weight: 600;
 }
@@ -1729,9 +1738,8 @@ main { position: relative; z-index: 1; }
 .service-card h3 {
     margin: 0 0 14px;
     font-size: 1.38rem;
-    line-height: 1.18;
-    font-family: 'Playfair Display', Georgia, serif;
-    letter-spacing: -0.03em;
+    line-height: 1.35;
+    font-family: 'IBM Plex Sans Arabic', 'Cairo', 'Tajawal', sans-serif;
 }
 
 .service-card p {
@@ -1770,7 +1778,6 @@ main { position: relative; z-index: 1; }
 .service-timeline {
     color: var(--accent);
     font-size: 0.84rem;
-    letter-spacing: 0.04em;
     font-weight: 600;
     padding: 10px 14px;
     border-radius: 12px;
@@ -1794,7 +1801,6 @@ main { position: relative; z-index: 1; }
     border: 1px solid rgba(0, 229, 255, 0.14);
     color: rgba(255, 255, 255, 0.8);
     font-size: 0.82rem;
-    letter-spacing: 0.02em;
     font-family: 'Cairo', 'Tajawal', sans-serif;
 }
 
@@ -1832,13 +1838,12 @@ main { position: relative; z-index: 1; }
 }
 
 .process-num {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: 'IBM Plex Sans Arabic', 'Cairo', 'Tajawal', sans-serif;
     font-size: 3.5rem;
     line-height: 0.9;
     color: rgba(0, 229, 255, 0.16);
     font-weight: 800;
     margin-bottom: 14px;
-    letter-spacing: -0.05em;
     transition: color 0.28s ease;
 }
 
@@ -1863,7 +1868,6 @@ main { position: relative; z-index: 1; }
 .process-duration {
     font-size: 0.8rem;
     color: var(--accent);
-    letter-spacing: 0.04em;
     font-weight: 600;
     opacity: 0.9;
 }
@@ -1923,7 +1927,6 @@ main { position: relative; z-index: 1; }
     background: rgba(255, 255, 255, 0.04);
     font-size: 0.88rem;
     color: var(--text-soft);
-    letter-spacing: 0.04em;
     transition: border-color 0.22s ease, background 0.22s ease, color 0.22s ease;
 }
 
