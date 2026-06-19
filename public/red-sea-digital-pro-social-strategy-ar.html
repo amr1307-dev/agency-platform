@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Red Sea Digital Pro — استراتيجية السوشيال ميديا</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --white: #FAFAF8;
+  --charcoal: #1A1A1A;
+  --mid: #2A2A2A;
+  --light: #E8E6E1;
+  --muted: #8A8A86;
+  --indigo: #4A5CF6;
+  --indigo-light: rgba(74,92,246,0.08);
+  --indigo-border: rgba(74,92,246,0.2);
+  --border: rgba(26,26,26,0.08);
+  --inter: 'Inter', sans-serif;
+  --tajawal: 'Tajawal', sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--white);
+  color: var(--charcoal);
+  font-family: var(--tajawal);
+  font-weight: 400;
+  line-height: 1.9;
+  min-height: 100vh;
+}
+::selection { background: var(--indigo); color: var(--white); }
+::-webkit-scrollbar { width: 2px; }
+::-webkit-scrollbar-thumb { background: var(--indigo); }
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(250,250,248,0.97);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 2.5rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+}
+.logo {
+  font-family: var(--inter); font-weight: 300; font-size: 0.8rem;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--charcoal);
+  white-space: nowrap;
+}
+.logo em { font-style: normal; font-weight: 500; color: var(--indigo); }
+.nav-scroll {
+  display: flex; gap: 0.2rem; overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.nav-scroll::-webkit-scrollbar { height: 0; }
+.tab-btn {
+  background: none; border: none;
+  padding: 0.4rem 0.9rem;
+  font-family: var(--tajawal); font-weight: 400; font-size: 0.75rem;
+  color: var(--muted);
+  cursor: pointer; transition: all 0.2s; white-space: nowrap;
+}
+.tab-btn:hover { color: var(--charcoal); }
+.tab-btn.active { color: var(--indigo); font-weight: 500; }
+
+/* PAGES */
+.page { display: none; padding: 3rem 2.5rem; max-width: 1200px; margin: 0 auto; }
+.page.active { display: block; }
+
+/* TYPOGRAPHY */
+.page-header { margin-bottom: 3rem; max-width: 640px; }
+.eyebrow {
+  font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--indigo); margin-bottom: 0.75rem; font-weight: 400;
+  font-family: var(--inter);
+}
+.page-title {
+  font-family: var(--tajawal); font-weight: 400;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  line-height: 1.4; margin-bottom: 1rem;
+}
+.page-sub { font-size: 0.9rem; color: var(--muted); line-height: 1.8; }
+
+/* SECTIONS */
+.section { margin-bottom: 4rem; }
+.section-title {
+  font-weight: 500;
+  font-size: 1.1rem;
+  margin-bottom: 1rem; padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.section-title strong { font-weight: 700; color: var(--indigo); }
+
+/* TEXT BLOCKS */
+.text-block { font-size: 0.85rem; line-height: 2; color: var(--charcoal); max-width: 680px; }
+.text-block .label { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.3rem; font-family: var(--inter); }
+.text-block p { margin-bottom: 1rem; }
+.text-block ul { list-style: none; margin-bottom: 1rem; }
+.text-block ul li { padding-right: 1rem; position: relative; margin-bottom: 0.3rem; }
+.text-block ul li::before { content: '—'; position: absolute; right: 0; color: var(--indigo); }
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+
+/* PLATFORM */
+.platform-entry { border-top: 1px solid var(--border); padding-top: 1.5rem; margin-bottom: 2rem; }
+.platform-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem; }
+.platform-name { font-weight: 500; font-size: 1rem; }
+.platform-priority { font-size: 0.65rem; color: var(--indigo); letter-spacing: 0.05em; font-family: var(--inter); }
+.platform-role { font-size: 0.82rem; color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
+.platform-stats { display: flex; gap: 1.5rem; }
+.platform-stat { font-size: 0.75rem; }
+.platform-stat strong { font-weight: 500; color: var(--indigo); }
+.platform-stat span { color: var(--muted); margin-right: 0.3rem; font-size: 0.65rem; }
+.bio-block { font-size: 0.78rem; line-height: 1.8; color: var(--charcoal); padding: 1.2rem 0; border-top: 1px solid var(--border); margin-top: 1rem; white-space: pre-line; }
+.copy-btn {
+  background: none; border: 1px solid var(--border);
+  padding: 0.3rem 0.7rem; font-family: var(--tajawal); font-weight: 400;
+  font-size: 0.65rem; color: var(--muted); cursor: pointer; transition: all 0.2s;
+}
+.copy-btn:hover { border-color: var(--indigo); color: var(--indigo); }
+
+/* PILLAR */
+.pillar-entry { border-top: 1px solid var(--border); padding-top: 1.5rem; margin-bottom: 2rem; }
+.pillar-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem; }
+.pillar-name { font-weight: 500; font-size: 0.95rem; }
+.pillar-pct { font-size: 1.2rem; font-weight: 300; color: var(--indigo); }
+.pillar-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.8; margin-bottom: 0.8rem; }
+.pillar-examples { list-style: none; font-size: 0.78rem; color: var(--muted); }
+.pillar-examples li { padding-right: 1rem; position: relative; margin-bottom: 0.2rem; }
+.pillar-examples li::before { content: '→'; position: absolute; right: 0; color: var(--indigo); }
+
+/* CALENDAR */
+.month-block { margin-bottom: 3rem; }
+.month-label {
+  font-weight: 500; font-size: 1rem;
+  padding-bottom: 0.8rem; border-bottom: 1px solid var(--border);
+  margin-bottom: 1.5rem;
+}
+.month-label em { font-style: normal; font-weight: 700; color: var(--indigo); }
+.cal-row {
+  display: grid; grid-template-columns: 90px 1fr;
+  gap: 0.5rem; margin-bottom: 0.4rem;
+  font-size: 0.82rem; line-height: 1.7;
+  padding: 0.4rem 0;
+}
+.cal-day { font-size: 0.65rem; color: var(--muted); padding-top: 0.2rem; letter-spacing: 0.05em; font-family: var(--inter); }
+.cal-content { color: var(--charcoal); }
+.cal-content .pf { color: var(--indigo); font-weight: 500; }
+.cal-content .plat { font-size: 0.65rem; color: var(--muted); }
+
+/* POST TEMPLATE */
+.post-tabs { display: flex; gap: 0; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
+.post-tab {
+  background: none; border: none;
+  padding: 0.6rem 1.2rem;
+  font-family: var(--tajawal); font-weight: 400; font-size: 0.75rem;
+  color: var(--muted); cursor: pointer; transition: all 0.2s;
+  border-bottom: 1px solid transparent; margin-bottom: -1px;
+}
+.post-tab:hover { color: var(--charcoal); }
+.post-tab.active { color: var(--indigo); font-weight: 500; border-bottom-color: var(--indigo); }
+.post-template { display: none; }
+.post-template.active { display: block; }
+.post-section { margin-bottom: 2rem; }
+.post-section-label { font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; font-family: var(--inter); }
+.post-section-value { font-size: 0.85rem; line-height: 2; white-space: pre-line; }
+.post-section-value .hashtags { display: block; margin-top: 0.8rem; font-size: 0.72rem; color: var(--indigo); }
+
+/* HOOKS */
+.hook-group { margin-bottom: 2.5rem; }
+.hook-group-title {
+  font-weight: 500; font-size: 0.75rem;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 1rem;
+  font-family: var(--inter);
+}
+.hook-item {
+  padding: 0.7rem 0; border-top: 1px solid var(--border);
+  font-size: 0.82rem; line-height: 1.8; color: var(--charcoal);
+  cursor: pointer; transition: all 0.2s;
+  display: flex; justify-content: space-between; gap: 1rem;
+}
+.hook-item:hover { color: var(--indigo); }
+.hook-item .hook-meta { font-size: 0.6rem; color: var(--muted); flex-shrink: 0; font-family: var(--inter); }
+
+/* HASHTAGS */
+.tag-group { margin-bottom: 2rem; }
+.tag-group-title { font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.8rem; font-family: var(--inter); }
+.tag-wrap { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.5rem; }
+.tag {
+  background: none; border: 1px solid var(--border);
+  padding: 0.2rem 0.6rem; font-weight: 300;
+  font-size: 0.72rem; color: var(--charcoal); cursor: pointer; transition: all 0.2s;
+}
+.tag:hover { border-color: var(--indigo); color: var(--indigo); }
+
+/* ANALYTICS */
+.metric-row {
+  padding: 0.8rem 0; border-top: 1px solid var(--border);
+  display: grid; grid-template-columns: 1fr 80px 80px 80px;
+  gap: 1rem; font-size: 0.82rem;
+}
+.metric-row .m-label { color: var(--charcoal); }
+.metric-row .m-target { color: var(--indigo); font-weight: 500; }
+.metric-row .m-current { color: var(--muted); }
+.metric-row.m-header { font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); border-top: none; padding-bottom: 0.3rem; font-family: var(--inter); }
+
+/* SETUP CHECKLIST */
+.checklist { margin-bottom: 2rem; }
+.checklist-title { font-weight: 500; font-size: 0.85rem; margin-bottom: 1rem; }
+.check-item {
+  display: flex; align-items: flex-start; gap: 0.8rem;
+  padding: 0.6rem 0; border-top: 1px solid var(--border);
+  cursor: pointer; transition: all 0.2s;
+}
+.check-item:hover { color: var(--indigo); }
+.check-item.done { color: var(--muted); }
+.check-box {
+  width: 14px; height: 14px; border: 1.5px solid var(--border);
+  flex-shrink: 0; margin-top: 3px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.5rem; transition: all 0.2s;
+}
+.check-item.done .check-box { background: var(--charcoal); border-color: var(--charcoal); color: var(--white); }
+.check-text { font-size: 0.82rem; line-height: 1.6; }
+.check-note { font-size: 0.68rem; color: var(--muted); margin-top: 0.1rem; }
+.progress-bar { height: 1px; background: var(--border); margin-bottom: 0.5rem; position: relative; }
+.progress-fill { height: 1px; background: var(--indigo); transition: width 0.3s; }
+.progress-text { font-size: 0.65rem; color: var(--muted); margin-bottom: 1.5rem; }
+
+@media(max-width:768px) {
+  nav { padding: 0.8rem 1rem; flex-direction: column; align-items: flex-start; }
+  .page { padding: 2rem 1rem; }
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .cal-row { grid-template-columns: 60px 1fr; }
+  .metric-row { grid-template-columns: 1fr 60px 60px 60px; }
+  .post-tabs { overflow-x: auto; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">RED SEA DIGITAL <em>PRO</em></div>
+  <div class="nav-scroll">
+    <button class="tab-btn active" onclick="showPage('strategy')">الاستراتيجية</button>
+    <button class="tab-btn" onclick="showPage('audience')">الجمهور</button>
+    <button class="tab-btn" onclick="showPage('content')">المحتوى</button>
+    <button class="tab-btn" onclick="showPage('calendar')">التقويم</button>
+    <button class="tab-btn" onclick="showPage('templates')">القوالب</button>
+    <button class="tab-btn" onclick="showPage('hooks')">الهوكس</button>
+    <button class="tab-btn" onclick="showPage('hashtags')">الهاشتاقات</button>
+    <button class="tab-btn" onclick="showPage('analytics')">التحليلات</button>
+    <button class="tab-btn" onclick="showPage('setup')">الإعداد</button>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════
+     PAGE 1: الاستراتيجية
+════════════════════════════════ -->
+<div class="page active" id="page-strategy">
+  <div class="page-header">
+    <div class="eyebrow">Foundation</div>
+    <h1 class="page-title">استراتيجية السوشيال ميديا</h1>
+    <p class="page-sub">وكالة الأداء الفاخر — Elite Performance Luxury. كل بوست له هدف: بناء Pipeline، ترسيخ السلطة، أو تحويل مباشر.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><strong>01</strong> نظام النمو الموجي™</div>
+    <div class="text-block">
+      <p>السوشيال ميديا هي الواجهة العامة لمنهجيتنا المكونة من 4 مراحل:</p>
+      <ul>
+        <li><strong>تشخيص</strong> — تدقيق رقمي مجاني. نحلل حضور العميل الرقمي مقابل أقوى منافسيه.</li>
+        <li><strong>بناء</strong> — نبني النظام الرقمي المتكامل: موقع، نظام حجز، SEO، هوية بصرية.</li>
+        <li><strong>تشغيل</strong> — إدارة مستمرة، محتوى، إعلانات مدفوعة، حضور اجتماعي.</li>
+        <li><strong>تحسين</strong> — تحسين مبني على البيانات. رفع ROAS، تحسين مسار التحويل.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><strong>02</strong> استراتيجية المنصات</div>
+
+    <div class="platform-entry">
+      <div class="platform-head">
+        <div class="platform-name">LinkedIn</div>
+        <div class="platform-priority">أولوية 1 — محرك Pipeline</div>
+      </div>
+      <div class="platform-role">القناة الأساسية لبناء علاقات B2B مع أصحاب القرار في قطاع السياحة والضيافة في البحر الأحمر ومنطقة الخليج.</div>
+      <div class="platform-stats">
+        <div class="platform-stat"><strong>3×</strong> <span>أسبوعياً</span></div>
+        <div class="platform-stat"><strong>EN</strong> <span>أساسي</span></div>
+        <div class="platform-stat"><strong>B2B</strong> <span>جمهور</span></div>
+      </div>
+      <div class="bio-block">Red Sea Digital Pro<br>
+وكالة الأداء الفاخر<br>
+البحر الأحمر · مصر · الخليج<br><br>
+نبني أنظمة رقمية فاخرة للسياحة والضيافة.<br><br>
+نظام النمو الموجي™ — تشخيص ← بناء ← تشغيل ← تحسين<br><br>
+📈 مساءلة Pipeline | 🎨 فخامة بصرية | 🤖 AI + Human</div>
+      <button class="copy-btn" onclick="copyText(this, 'Red Sea Digital Pro\nوكالة الأداء الفاخر\nالبحر الأحمر · مصر · الخليج\n\nنبني أنظمة رقمية فاخرة للسياحة والضيافة.\n\nنظام النمو الموجي™ — تشخيص ← بناء ← تشغيل ← تحسين\n\n📈 مساءلة Pipeline | 🎨 فخامة بصرية | 🤖 AI + Human')">نسخ الـ Bio</button>
+    </div>
+
+    <div class="platform-entry">
+      <div class="platform-head">
+        <div class="platform-name">Instagram</div>
+        <div class="platform-priority">أولوية 1 — محفظة بصرية</div>
+      </div>
+      <div class="platform-role">محفظة حية لأعمالنا — Before/After، كاروسيل دراسات حالة، Reels تظهر عملية البناء. هنا العميل يشوف النتائج قبل ما يتواصل.</div>
+      <div class="platform-stats">
+        <div class="platform-stat"><strong>3×</strong> <span>أسبوعياً</span></div>
+        <div class="platform-stat"><strong>EN + AR</strong> <span>لغتان</span></div>
+        <div class="platform-stat"><strong>بصري</strong> <span>محور</span></div>
+      </div>
+      <div class="bio-block">Red Sea Digital Pro 🌊<br>
+وكالة الأداء الفاخر<br>
+┉┉┉┉┉┉┉┉┉┉<br>
+مواقع · هوية · SEO · أنظمة حجز<br>
+🇬🇧🇩🇪🇫🇷🇳🇱 نتحدث لغة ضيوفك<br>
+📍 البحر الأحمر · الخليج<br>
+┉┉┉┉┉┉┉┉┉┉<br>
+👇 تشخيص رقمي مجاني ↓</div>
+      <button class="copy-btn" onclick="copyText(this, 'Red Sea Digital Pro 🌊\nوكالة الأداء الفاخر\n┉┉┉┉┉┉┉┉┉┉\nمواقع · هوية · SEO · أنظمة حجز\n🇬🇧🇩🇪🇫🇷🇳🇱 نتحدث لغة ضيوفك\n📍 البحر الأحمر · الخليج\n┉┉┉┉┉┉┉┉┉┉\n👇 تشخيص رقمي مجاني ↓')">نسخ الـ Bio</button>
+    </div>
+
+    <div class="platform-entry">
+      <div class="platform-head">
+        <div class="platform-name">Facebook</div>
+        <div class="platform-priority">أولوية 2 — مجتمع محلي</div>
+      </div>
+      <div class="platform-role">استهداف الشركات المحلية ومجتمعات المغتربين في الغردقة، الجونة، سهل حشيش. مجموعات مثل "Hurghada Expats" و"Red Sea Business Network."</div>
+      <div class="platform-stats">
+        <div class="platform-stat"><strong>2×</strong> <span>أسبوعياً</span></div>
+        <div class="platform-stat"><strong>AR + EN</strong> <span>لغتان</span></div>
+        <div class="platform-stat"><strong>B2B + B2C</strong> <span>مزيج</span></div>
+      </div>
+      <div class="bio-block">Red Sea Digital Pro 🌊<br>
+وكالة الأداء الفاخر<br>
+الغردقة · البحر الأحمر<br>
+┉┉┉┉┉┉┉┉┉┉<br>
+🌐 مواقع · هوية · SEO · حجز<br>
+📈 مساءلة Pipeline<br>
+┉┉┉┉┉┉┉┉┉┉<br>
+📞 واتساب: +201028803080</div>
+      <button class="copy-btn" onclick="copyText(this, 'Red Sea Digital Pro 🌊\nوكالة الأداء الفاخر\nالغردقة · البحر الأحمر\n┉┉┉┉┉┉┉┉┉┉\n🌐 مواقع · هوية · SEO · حجز\n📈 مساءلة Pipeline\n┉┉┉┉┉┉┉┉┉┉\n📞 واتساب: +201028803080')">نسخ الـ Bio</button>
+    </div>
+
+    <div class="platform-entry">
+      <div class="platform-head">
+        <div class="platform-name">TikTok</div>
+        <div class="platform-priority">أولوية 2 — نمو عضوي</div>
+      </div>
+      <div class="platform-role">أسرع منصة نمو عضوي. فيديوهات Before/After، "كيف بنيت" screen recordings، محتوى تعليمي قصير بالعربي.</div>
+      <div class="platform-stats">
+        <div class="platform-stat"><strong>2×</strong> <span>أسبوعياً</span></div>
+        <div class="platform-stat"><strong>AR</strong> <span>أساسي</span></div>
+        <div class="platform-stat"><strong>فيديو قصير</strong> <span>صيغة</span></div>
+      </div>
+      <div class="bio-block">@redseadigitalpro 🌊<br>
+وكالة الأداء الفاخر<br>
+📍 البحر الأحمر، مصر<br>
+—<br>
+Before/After | كيف بنيت | أسرار SEO<br>
+أنظمة حجز تحوّل 🎯</div>
+      <button class="copy-btn" onclick="copyText(this, '@redseadigitalpro 🌊\nوكالة الأداء الفاخر\n📍 البحر الأحمر، مصر\n—\nBefore/After | كيف بنيت | أسرار SEO\nأنظمة حجز تحوّل 🎯')">نسخ الـ Bio</button>
+    </div>
+
+    <div class="platform-entry">
+      <div class="platform-head">
+        <div class="platform-name">WhatsApp Business</div>
+        <div class="platform-priority">أولوية 1 — تحويل مباشر</div>
+      </div>
+      <div class="platform-role">أداة مبيعات متكاملة. Status يومي = محتوى يشاهده جميع جهات الاتصال. Catalog لعرض الخدمات. Quick Replies للردود الفورية.</div>
+      <div class="grid-3" style="margin-top:1.5rem;border-top:1px solid var(--border);padding-top:1.5rem">
+        <div class="text-block">
+          <div class="label">Catalog</div>
+          <p>عرض الباقات الأربعة مع الأوصاف. العميل يتصفح ويستفسر مباشرة.</p>
+        </div>
+        <div class="text-block">
+          <div class="label">Status يومي</div>
+          <p>بوست يومي — Before/After، نصيحة، عرض اليوم. يشاهده جميع جهات الاتصال.</p>
+        </div>
+        <div class="text-block">
+          <div class="label">Quick Replies</div>
+          <p>/audit → رابط التشخيص · /price → قائمة الأسعار · /portfolio → معرض الأعمال</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════
+     PAGE 2: الجمهور
+════════════════════════════════ -->
+<div class="page" id="page-audience">
+  <div class="page-header">
+    <div class="eyebrow">Audience Intelligence</div>
+    <h1 class="page-title">مصفوفة الجمهور</h1>
+    <p class="page-sub">ثلاث مستويات استهداف: أساسي خليجي، ثانوي محلي، ثالثي شراكات. لكل مستوى قنواته ورسائله.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><strong>المستوى 1</strong> مستثمرون خليجيون</div>
+    <div class="text-block">
+      <div class="label">الملف الشخصي</div>
+      <p>سعوديون، إماراتيون، قطريون، كويتيون باستثمارات سياحية في البحر الأحمر. ميزانيات عالية، يتوقعون عمل فاخر، قرار سريع.</p>
+      <div class="label">نقاط الألم</div>
+      <ul>
+        <li>"منتجعي في الجونة يبدو رخيصاً على الإنترنت"</li>
+        <li>"أستثمر بالملايين لكن حضوري الرقمي قديم"</li>
+        <li>"أريد مساءلة Pipeline، ليس مجرد موقع جميل"</li>
+        <li>"وكالتي الحالية تعطي جماليات بدون حجوزات"</li>
+      </ul>
+      <div class="label">القناة الأساسية</div>
+      <p>LinkedIn — محتوى قيادي + تواصل مباشر. واتساب للمتابعة.</p>
+      <div class="label">زاوية الرسالة</div>
+      <p>الأداء الفاخر. نجمع بين الجماليات الفاخرة ومساءلة الإيرادات. نظام النمو الموجي™ يضمن نتائج Pipeline، ليس مجرد مخرجات بصرية.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><strong>المستوى 2</strong> ملاك سياحة محليون</div>
+    <div class="text-block">
+      <div class="label">الملف الشخصي</div>
+      <p>أصحاب مراكز غوص، منظمي رحلات، فنادق صغيرة، مطاعم في الغردقة، الجونة، مرسى علم، شرم الشيخ. عندهم تقييمات على جوجل لكن بنية رقمية ضعيفة.</p>
+      <div class="label">نقاط الألم</div>
+      <ul>
+        <li>"عندي تقييمات ممتازة لكن لا توجد حجوزات أونلاين"</li>
+        <li>"لا أعرف من أين أبدأ"</li>
+        <li>"جربت مطور ويب قبل كده والنتيجة كانت سيئة"</li>
+        <li>"السياح الألمان مش لاقيني"</li>
+      </ul>
+      <div class="label">القناة الأساسية</div>
+      <p>Facebook + WhatsApp. Instagram للإثبات البصري. TikTok للوصول العضوي.</p>
+      <div class="label">زاوية الرسالة</div>
+      <p>تعليم + إثبات. "منافسك بنى نظام حجز. كم حجز بتخسر كل يوم؟" البداية بالتشخيص الرقمي المجاني.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><strong>المستوى 3</strong> شركاء دوليون</div>
+    <div class="text-block">
+      <div class="label">الملف الشخصي</div>
+      <p>مجالس سياحية، منصات B2B، وكلاء سفر في أوروبا والخليج يبحثون عن شريك رقمي موثوق في مصر لعملائهم.</p>
+      <div class="label">نقاط الألم</div>
+      <ul>
+        <li>"أحتاج شريكاً في مصر أثق به مع عملائي"</li>
+        <li>"التواصل والموثوقية غير مستقرين"</li>
+        <li>"أريد من يفهم الفخامة والأداء معاً"</li>
+      </ul>
+      <div class="label">القناة الأساسية</div>
+      <p>LinkedIn — دراسات حالة، توثيق عمليات، إظهار القدرات متعددة اللغات. Cold email للمقترحات.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><strong>رحلة العميل</strong></div>
+    <div class="text-block">
+      <p><strong>الوعي ← التفكير ← القرار ← الاحتفاظ</strong></p>
+      <p><strong>الوعي:</strong> LinkedIn قيادي، Instagram معرض، TikTok تعليمي. التشخيص الرقمي المجاني ك lead magnet.</p>
+      <p><strong>التفكير:</strong> دراسات حالة (YallaTrip)، محتوى المنهجية، زيارة صفحة الأسعار. نتابع من جهتنا.</p>
+      <p><strong>القرار:</strong> مقترح + call اكتشاف. نشخص الـ stack الحالي، نقدم خارطة طريق نظام النمو الموجي™، نلتزم بأهداف Pipeline.</p>
+      <p><strong>الاحتفاظ:</strong> مراجعات شهرية، جلسات استراتيجية ربع سنوية، لوحات أداء. حوافز إحالة للعملاء الحاليين.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════
+     PAGE 3: المحتوى
+════════════════════════════════ -->
+<div class="page" id="page-content">
+  <div class="page-header">
+    <div class="eyebrow">Content Architecture</div>
+    <h1 class="page-title">أعمدة المحتوى الخمسة</h1>
+    <p class="page-sub">كل بوست ينتمي لعمود واحد. 3 بوستات أسبوعياً بتوزيع ذكي بين الأعمدة. لا محتوى عشوائي.</p>
+  </div>
+
+  <div class="section">
+    <div class="pillar-entry">
+      <div class="pillar-top">
+        <div class="pillar-name">01 · إثبات الكفاءة</div>
+        <div class="pillar-pct">35%</div>
+      </div>
+      <div class="pillar-desc">نتائج حقيقية للعملاء — Before/After، دراسات حالة، أرقام تأثير على الإيرادات. هذا ما يحول المتابعين لعملاء.</div>
+      <ul class="pillar-examples">
+        <li>YallaTrip Before/After — من الصفر إلى منصة فاخرة</li>
+        <li>لقطة شاشة لنظام حجز يعمل في الإنتاج</li>
+        <li>بيانات زيادة الإيرادات من الحجوزات الأونلاين</li>
+        <li>"بنيت موقع سياحي في 10 أيام" — شرح كامل</li>
+        <li>شهادة عميل مع نتائج قابلة للقياس</li>
+      </ul>
+    </div>
+
+    <div class="pillar-entry">
+      <div class="pillar-top">
+        <div class="pillar-name">02 · تعليم</div>
+        <div class="pillar-pct">30%</div>
+      </div>
+      <div class="pillar-desc">قيمة مجانية لأصحاب الأعمال السياحية. يبني الثقة ويجعلك الخبير في أذهانهم.</div>
+      <ul class="pillar-examples">
+        <li>"5 أخطاء في مواقع مراكز الغوص"</li>
+        <li>"ليه السياح الألمان مش لاقينك على جوجل؟"</li>
+        <li>"3 أشياء ضرورية في كل موقع سياحي"</li>
+        <li>نصيحة SEO أسبوعية للسياحة</li>
+        <li>"إزاي تبني نظام حجز في 48 ساعة"</li>
+      </ul>
+    </div>
+
+    <div class="pillar-entry">
+      <div class="pillar-top">
+        <div class="pillar-name">03 · سلطة محلية</div>
+        <div class="pillar-pct">20%</div>
+      </div>
+      <div class="pillar-desc">معلومات سوقية عن قطاع السياحة في البحر الأحمر. رؤى مدعومة بالبيانات تثبت أننا نفهم السوق بعمق.</div>
+      <ul class="pillar-examples">
+        <li>"دققت 50 موقع سياحي في الغردقة — الأرقام صادمة"</li>
+        <li>"السياحة الألمانية لمصر 2026 — توقعات"</li>
+        <li>"المشهد الرقمي لعقارات البحر الأحمر"</li>
+        <li>"الاستثمار الخليجي في سياحة البحر الأحمر — من يفوز أونلاين؟"</li>
+      </ul>
+    </div>
+
+    <div class="pillar-entry">
+      <div class="pillar-top">
+        <div class="pillar-name">04 · العلامة الشخصية</div>
+        <div class="pillar-pct">10%</div>
+      </div>
+      <div class="pillar-desc">الجانب الإنساني — قصة المؤسس، المهمة، القيم، ما وراء الكواليس. يبني علاقة حقيقية.</div>
+      <ul class="pillar-examples">
+        <li>"ليه بدأت Red Sea Digital Pro"</li>
+        <li>"يوم في حياة — بناء في الغردقة"</li>
+        <li>"وجهة نظري ك Creative Director من وكالة عالمية"</li>
+        <li>خلف الشاشة — مشروع قيد التنفيذ</li>
+      </ul>
+    </div>
+
+    <div class="pillar-entry">
+      <div class="pillar-top">
+        <div class="pillar-name">05 · عرض مباشر</div>
+        <div class="pillar-pct">5%</div>
+      </div>
+      <div class="pillar-desc">بوستات دعوة مباشرة. مرة كل 3 أسابيع كحد أقصى. الإكثار يقتل السلطة.</div>
+      <ul class="pillar-examples">
+        <li>"تشخيص رقمي مجاني — 3 أماكن هذا الأسبوع"</li>
+        <li>"عرض خليجي خاص: تدقيق الأداء الفاخر"</li>
+        <li>"محدود: استقبال عملاء جدد — مكانان فقط"</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><strong>التوزيع الأسبوعي</strong></div>
+    <div class="grid-3">
+      <div class="text-block">
+        <div class="label">الأحد</div>
+        <p><strong>إثبات الكفاءة</strong><br>LinkedIn + Instagram<br>Case study أو Before/After</p>
+      </div>
+      <div class="text-block">
+        <div class="label">الثلاثاء</div>
+        <p><strong>تعليم</strong><br>LinkedIn + Facebook<br>محتوى تعليمي قيم</p>
+      </div>
+      <div class="text-block">
+        <div class="label">الخميس</div>
+        <p><strong>سلطة محلية / شخصي</strong><br>Instagram + TikTok<br>رؤية سوقية أو قصة شخصية</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════
+     PAGE 4: التقويم
+════════════════════════════════ -->
+<div class="page" id="page-calendar">
+  <div class="page-header">
+    <div class="eyebrow">Content Calendar</div>
+    <h1 class="page-title">تقويم المحتوى — 90 يوماً</h1>
+    <p class="page-sub">3 أشهر من المحتوى المخطط. كل بوست مرتبط بعمود ومنصة وهدف. تكيف أسبوعياً بناءً على الأداء.</p>
+  </div>
+
+  <div class="month-block">
+    <div class="month-label"><em>الشهر 1</em> — الإطلاق وبناء السلطة</div>
+
+    <div class="cal-row">
+      <div class="cal-day">الأسبوع 1 · أحد</div>
+      <div class="cal-content"><span class="pf">إعلان الإطلاق:</span> Red Sea Digital Pro أصبحت رسمياً — وكالة الأداء الفاخر لسياحة البحر الأحمر. <span class="plat">LinkedIn + IG</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">الأسبوع 1 · ثلاثاء</div>
+      <div class="cal-content"><span class="pf">تعليمي:</span> "ليه معظم مواقع السياحة فاشلة في التحويل — قاعدة الـ 3 ثواني" <span class="plat">LinkedIn + FB</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">الأسبوع 1 · خميس</div>
+      <div class="cal-content"><span class="pf">قصة شخصية:</span> "ليه أسست وكالة أداء فاخر للبحر الأحمر" <span class="plat">IG + TikTok</span></div>
+    </div>
+
+    <div class="cal-row">
+      <div class="cal-day">الأسبوع 2 · أحد</div>
+      <div class="cal-content"><span class="pf">إثبات كفاءة:</span> YallaTrip — من الصفر لمنصة فاخرة في 10 أيام <span class="plat">LinkedIn + IG</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">الأسبوع 2 · ثلاثاء</div>
+      <div class="cal-content"><span class="pf">تعليمي:</span> "السياح الألمان يصرفون 40% أكثر — ولهذا السبب لا يجدونك" <span class="plat">LinkedIn + FB</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">الأسبوع 2 · خميس</div>
+      <div class="cal-content"><span class="pf">سلطة محلية:</span> "دققت 50 موقع سياحي في الغردقة — الأرقام صادمة" <span class="plat">IG + TikTok</span></div>
+    </div>
+
+    <div class="cal-row">
+      <div class="cal-day">الأسبوع 3 · أحد</div>
+      <div class="cal-content"><span class="pf">إثبات كفاءة:</span> Before/After تحويل موقع — لقطات + أرقام <span class="plat">LinkedIn + IG</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">الأسبوع 3 · ثلاثاء</div>
+      <div class="cal-content"><span class="pf">تعليمي:</span> "نظام النمو الموجي™ — كيف نضمن نتائج Pipeline" <span class="plat">LinkedIn + FB</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">الأسبوع 3 · خميس</div>
+      <div class="cal-content"><span class="pf">سلطة محلية:</span> "الاستثمار الخليجي في سياحة البحر الأحمر — من يفوز أونلاين؟" <span class="plat">IG</span></div>
+    </div>
+
+    <div class="cal-row">
+      <div class="cal-day">الأسبوع 4 · أحد</div>
+      <div class="cal-content"><span class="pf">إثبات كفاءة:</span> شهادة عميل مع نتائج قابلة للقياس <span class="plat">LinkedIn + IG</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">الأسبوع 4 · ثلاثاء</div>
+      <div class="cal-content"><span class="pf">عرض:</span> "تشخيص رقمي مجاني — 3 أماكن هذا الأسبوع فقط" <span class="plat">جميع المنصات</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">الأسبوع 4 · خميس</div>
+      <div class="cal-content"><span class="pf">شخصي:</span> "خلف الشاشة — أسبوع في بناء علامة فاخرة" <span class="plat">TikTok</span></div>
+    </div>
+  </div>
+
+  <div class="month-block">
+    <div class="month-label"><em>الشهر 2</em> — سلطة معمقة ومجتمع</div>
+
+    <div class="cal-row">
+      <div class="cal-day">الأسبوع 5 · أحد</div>
+      <div class="cal-content"><span class="pf">إثبات كفاءة:</span> شرح تفصيلي — "كيف بنينا نظام حجز زاد الحجوزات الأونلاين 340%" <span class="plat">LinkedIn</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">الأسبوع 5 · ثلاثاء</div>
+      <div class="cal-content"><span class="pf">تعليمي:</span> "SEO للسياحة — الكلمات المفتاحية التي تحجز الضيوف فعلاً" <span class="plat">LinkedIn + FB</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">الأسبوع 5 · خميس</div>
+      <div class="cal-content"><span class="pf">سلطة محلية:</span> "سياحة البحر الأحمر 2026 بالأرقام" <span class="plat">IG</span></div>
+    </div>
+
+    <div class="cal-row">
+      <div class="cal-day">الأسبوع 6 · أحد</div>
+      <div class="cal-content"><span class="pf">إثبات كفاءة:</span> موقع متعدد اللغات — عميل يظهر في ألماني، إنجليزي، عربي <span class="plat">LinkedIn + IG</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">الأسبوع 6 · ثلاثاء</div>
+      <div class="cal-content"><span class="pf">تعليمي:</span> "الفرق بين موقع إلكتروني ونظام رقمي متكامل" <span class="plat">LinkedIn</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">الأسبوع 6 · خميس</div>
+      <div class="cal-content"><span class="pf">شخصي:</span> "دروس من العمل مع علامات سياحية خليجية" <span class="plat">IG + TikTok</span></div>
+    </div>
+
+    <div class="cal-row">
+      <div class="cal-day">الأسبوع 7 · أحد</div>
+      <div class="cal-content"><span class="pf">إثبات كفاءة:</span> Before/After صفحة هبوط — تحسين معدل التحويل <span class="plat">LinkedIn + IG</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">الأسبوع 7 · ثلاثاء</div>
+      <div class="cal-content"><span class="pf">تعليمي:</span> "AI في تسويق السياحة — ما يعمل فعلاً الآن" <span class="plat">LinkedIn + FB</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">الأسبوع 7 · خميس</div>
+      <div class="cal-content"><span class="pf">سلطة محلية:</span> "سياح خليجيون vs أوروبيون — جمهور مختلف، استراتيجية مختلفة" <span class="plat">IG</span></div>
+    </div>
+
+    <div class="cal-row">
+      <div class="cal-day">الأسبوع 8 · أحد</div>
+      <div class="cal-content"><span class="pf">إثبات كفاءة:</span> دراسة حالة متكاملة — موقع + حجز + SEO + هوية لمنتجع فاخر <span class="plat">LinkedIn</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">الأسبوع 8 · ثلاثاء</div>
+      <div class="cal-content"><span class="pf">تعليمي:</span> "مساءلة Pipeline — كيف نربط عملنا بإيراداتك" <span class="plat">LinkedIn</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">الأسبوع 8 · خميس</div>
+      <div class="cal-content"><span class="pf">عرض:</span> "تدقيق الأداء الفاخر — مكانان مجانيان للعملاء الخليجيين" <span class="plat">LinkedIn + IG</span></div>
+    </div>
+  </div>
+
+  <div class="month-block">
+    <div class="month-label"><em>الشهر 3</em> — Pipeline ونمو</div>
+
+    <div class="cal-row">
+      <div class="cal-day">الأسبوع 9 · أحد</div>
+      <div class="cal-content"><span class="pf">إثبات كفاءة:</span> تقرير 90 يوماً — كشف لوحة أداء العميل <span class="plat">LinkedIn</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">الأسبوع 9 · ثلاثاء</div>
+      <div class="cal-content"><span class="pf">تعليمي:</span> "كيف نستخدم البيانات لتحسين مواقع السياحة — مرحلة التحسين" <span class="plat">LinkedIn + FB</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">الأسبوع 9 · خميس</div>
+      <div class="cal-content"><span class="pf">سلطة محلية:</span> "حالة الرقمنة في سياحة البحر الأحمر — تقرير السوق" <span class="plat">IG</span></div>
+    </div>
+
+    <div class="cal-row">
+      <div class="cal-day">الأسبوع 10 · أحد</div>
+      <div class="cal-content"><span class="pf">إثبات كفاءة:</span> Before/After — تحسين التوافق مع الجوال <span class="plat">LinkedIn + IG</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">الأسبوع 10 · ثلاثاء</div>
+      <div class="cal-content"><span class="pf">تعليمي:</span> "المكافآت الأدائية — لماذا نربط رسومنا بنتائجنا" <span class="plat">LinkedIn</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">الأسبوع 10 · خميس</div>
+      <div class="cal-content"><span class="pf">شخصي:</span> "Red Sea Pro vs الوكالات التقليدية — الفرق في المنهجية" <span class="plat">IG + TikTok</span></div>
+    </div>
+
+    <div class="cal-row">
+      <div class="cal-day">الأسبوع 11 · أحد</div>
+      <div class="cal-content"><span class="pf">إثبات كفاءة:</span> تسليط ضوء على عميل — مقابلة مع نتائج قابلة للقياس <span class="plat">LinkedIn</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">الأسبوع 11 · ثلاثاء</div>
+      <div class="cal-content"><span class="pf">تعليمي:</span> "مراحل النضج الرقمي الأربع للشركات السياحية" <span class="plat">LinkedIn + FB</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">الأسبوع 11 · خميس</div>
+      <div class="cal-content"><span class="pf">سلطة محلية:</span> "البحر الأحمر vs المالديف — مقارنة الوجود الرقمي" <span class="plat">IG</span></div>
+    </div>
+
+    <div class="cal-row">
+      <div class="cal-day">الأسبوع 12 · أحد</div>
+      <div class="cal-content"><span class="pf">إثبات كفاءة:</span> ملخص الربع سنوي — أفضل المشاريع، أكبر الإنجازات <span class="plat">LinkedIn + IG</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">الأسبوع 12 · ثلاثاء</div>
+      <div class="cal-content"><span class="pf">تعليمي:</span> "تخطيط استراتيجيتك الرقمية لسياحة البحر الأحمر 2026/2027" <span class="plat">LinkedIn</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">الأسبوع 12 · خميس</div>
+      <div class="cal-content"><span class="pf">عرض:</span> "استقبال عملاء الجدد — مكانان متبقيان في الربع القادم" <span class="plat">جميع المنصات</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════
+     PAGE 5: القوالب
+════════════════════════════════ -->
+<div class="page" id="page-templates">
+  <div class="page-header">
+    <div class="eyebrow">Ready-to-Use</div>
+    <h1 class="page-title">قوالب البوستات الجاهزة</h1>
+    <p class="page-sub">8 قوالب مكيفة لوكالة الأداء الفاخر. عدّل التفاصيل وانشر.</p>
+  </div>
+
+  <div class="post-tabs">
+    <button class="post-tab active" onclick="showTemplate('t1')">Before/After</button>
+    <button class="post-tab" onclick="showTemplate('t2')">تعليمي</button>
+    <button class="post-tab" onclick="showTemplate('t3')")>دراسة حالة</button>
+    <button class="post-tab" onclick="showTemplate('t4')">سلطة محلية</button>
+    <button class="post-tab" onclick="showTemplate('t5')">عرض</button>
+    <button class="post-tab" onclick="showTemplate('t6')">Instagram AR</button>
+    <button class="post-tab" onclick="showTemplate('t7')">TikTok سكريبت</button>
+    <button class="post-tab" onclick="showTemplate('t8')">واتساب</button>
+  </div>
+
+  <div class="post-template active" id="pt-t1">
+    <div class="post-section">
+      <div class="post-section-label">المنصة</div>
+      <div class="post-section-value">LinkedIn — أعلى أداء</div>
+    </div>
+    <div class="post-section">
+      <div class="post-section-label">القالب — Before/After</div>
+      <div class="post-section-value">قبل [X] يوم، هذا العميل كان:<br>
+✗ لا موقع / لا هوية / لا نظام حجز / لا محتوى<br><br>
+اليوم: [اسم العميل] أصبح live — نظام رقمي متكامل بني من الصفر.<br><br>
+ما قدمناه:<br>
+✅ هوية بصرية كاملة + موقع<br>
+✅ نظام حجز مدمج<br>
+✅ أساس SEO متين (متعدد اللغات)<br>
+✅ بنية محتوى + صور<br><br>
+التحدي لم يكن بناء موقع فقط. كان خلق حضور رقمي يليق بعلامة سياحية عالمية المستوى.<br><br>
+إذا كان نشاطك السياحي عنده تقييمات ممتازة لكن مفيش Pipeline رقمي — فأنت تترك إيرادات على الطاولة كل يوم.<br><br>
+ابعتلي "تشخيص" عشان تشخيص رقمي مجاني.
+      <span class="hashtags">#وكالة_أداء_فاخر #RedSeaDigitalPro #تصميم_مواقع #سياحة_البحر_الأحمر #فخامة_رقمية</span></div>
+    </div>
+    <div class="post-section">
+      <div class="post-section-label">الصورة المطلوبة</div>
+      <div class="post-section-value">لقطة شاشة منقسمة — موبايل + ديسكتوب للموقع الجديد. أو كاروسيل يظهر رحلة التحول.</div>
+    </div>
+    <button class="copy-btn" onclick="copyTemplate(this, 'قبل [X] يوم، هذا العميل كان:\n✗ لا موقع / لا هوية / لا نظام حجز / لا محتوى\n\nاليوم: [اسم العميل] أصبح live — نظام رقمي متكامل.\n\nما قدمناه:\n✅ هوية بصرية كاملة + موقع\n✅ نظام حجز مدمج\n✅ أساس SEO متين\n✅ بنية محتوى + صور\n\nالتحدي لم يكن بناء موقع فقط. كان خلق حضور رقمي يليق بعلامة سياحية عالمية.\n\nابعتلي "تشخيص" عشان تشخيص رقمي مجاني.\n\n#وكالة_أداء_فاخر #RedSeaDigitalPro #تصميم_مواقع #سياحة_البحر_الأحمر')">نسخ البوست كامل</button>
+  </div>
+
+  <div class="post-template" id="pt-t2">
+    <div class="post-section">
+      <div class="post-section-label">المنصة</div>
+      <div class="post-section-value">LinkedIn + Facebook — الثلاثاء 10 صباحاً</div>
+    </div>
+    <div class="post-section">
+      <div class="post-section-label">القالب — تعليمي</div>
+      <div class="post-section-value">معظم مواقع السياحة عندها نفس [X] الأخطاء. إليك كيف تصلحها كلها.<br><br>
+1. [الخطأ 1 — مثل: "لا توافق مع الجوال"]<br>
+   → الحل: [نصيحة محددة قابلة للتنفيذ]<br><br>
+2. [الخطأ 2 — مثل: "محتوى عربي فقط"]<br>
+   → الحل: [نصيحة محددة]<br><br>
+3. [الخطأ 3 — مثل: "نظام حجز تحت الطي"]<br>
+   → الحل: [نصيحة محددة]<br><br>
+الحقيقة: أغلب شركات السياحة في البحر الأحمر عندها خبرة ميدانية ممتازة لكن بدون بنية رقمية.<br><br>
+الفجوة بين الأونلاين والأوفلاين هي حيث نعمل.<br><br>
+تحب أدق موقعك الحالي؟ اكتب رابط موقعك في التعليقات.
+      <span class="hashtags">#تسويق_سياحي #استراتيجية_رقمية #سياحة_البحر_الأحمر #تصميم_مواقع #تكنولوجيا_ضيافة</span></div>
+    </div>
+    <button class="copy-btn" onclick="copyTemplate(this, 'معظم مواقع السياحة عندها نفس [X] الأخطاء. إليك كيف تصلحها كلها.\n\n1. [الخطأ 1] → الحل: [نصيحة]\n2. [الخطأ 2] → الحل: [نصيحة]\n3. [الخطأ 3] → الحل: [نصيحة]\n\nالحقيقة: أغلب شركات السياحة في البحر الأحمر عندها خبرة ميدانية ممتازة لكن بدون بنية رقمية.\n\nتحب أدق موقعك الحالي؟ اكتب رابطه في التعليقات.\n\n#تسويق_سياحي #استراتيجية_رقمية #سياحة_البحر_الأحمر #تصميم_مواقع')">نسخ البوست</button>
+  </div>
+
+  <div class="post-template" id="pt-t3">
+    <div class="post-section">
+      <div class="post-section-label">المنصة</div>
+      <div class="post-section-value">LinkedIn + Instagram — الأحد 9 صباحاً</div>
+    </div>
+    <div class="post-section">
+      <div class="post-section-label">القالب — دراسة حالة (عربي)</div>
+      <div class="post-section-value">✨ قصة نجاح — [اسم العميل]<br><br>
+العميل جه بـ: لا موقع، لا هوية، لا محتوى، لا صور 📋<br><br>
+وبعد [X] يوم:<br>
+✅ موقع سياحي كامل شغّال<br>
+✅ هوية بصرية متكاملة<br>
+✅ [X]+ جولة/خدمة منشورة<br>
+✅ نظام حجز مدمج<br>
+✅ SEO مضبوط متعدد اللغات<br><br>
+نشاطك السياحي يستاهل وجود رقمي بمستوى عالمي 🎯<br><br>
+ابعتلي "تشخيص" في الـ DM وأعمل لك تحليل مجاني لحضورك الرقمي 🌊
+      <span class="hashtags">#تصميم_مواقع #الغردقة #البحر_الأحمر #وكالة_أداء_فاخر #سياحة_مصر</span></div>
+    </div>
+    <button class="copy-btn" onclick="copyTemplate(this, '✨ قصة نجاح — [اسم العميل]\n\nالعميل جه بـ: لا موقع، لا هوية، لا محتوى، لا صور 📋\n\nوبعد [X] يوم:\n✅ موقع سياحي كامل شغّال\n✅ هوية بصرية متكاملة\n✅ [X]+ جولة/خدمة منشورة\n✅ نظام حجز مدمج\n✅ SEO مضبوط متعدد اللغات\n\nنشاطك السياحي يستاهل وجود رقمي بمستوى عالمي 🎯\n\nابعتلي "تشخيص" في الـ DM وأعمل لك تحليل مجاني لحضورك الرقمي 🌊\n\n#تصميم_مواقع #الغردقة #البحر_الأحمر #وكالة_أداء_فاخر #سياحة_مصر')">نسخ البوست</button>
+  </div>
+
+  <div class="post-template" id="pt-t4">
+    <div class="post-section">
+      <div class="post-section-label">المنصة</div>
+      <div class="post-section-value">LinkedIn — بوست سلطة مبني على بيانات</div>
+    </div>
+    <div class="post-section">
+      <div class="post-section-label">القالب — سلطة محلية (بيانات)</div>
+      <div class="post-section-value">دققت [N] موقع سياحي في [الموقع].<br><br>
+النتائج تقول الكثير:<br><br>
+📊 [X]% ما عندهم موقع احترافي<br>
+📊 [X]% ما عندهم نظام حجز أونلاين<br>
+📊 [X]% غير مرئيين في نتائج بحث [اللغة]<br>
+📊 [X]% معتمدين كلياً على واتساب للحجوزات<br><br>
+هذه الشركات عندها آلاف التقييمات 5 نجوم. يقدمون تجارب استثنائية. لكنهم يتركون [X]% من الإيرادات المحتملة على الطاولة لأن السياح لا يجدونهم ولا يستطيعون الحجز أونلاين.<br><br>
+سوق السياحة في البحر الأحمر يساوي المليارات. الفرصة الرقمية لم تُستغل بعد.<br><br>
+لهذا بنينا Red Sea Digital Pro — لسد هذه الفجوة بأداء فاخر.
+      <span class="hashtags">#سياحة_البحر_الأحمر #ذكاء_سوقي #تسويق_سياحي #تحول_رقمي #بيانات</span></div>
+    </div>
+    <button class="copy-btn" onclick="copyTemplate(this, 'دققت [N] موقع سياحي في [الموقع].\n\n📊 [X]% ما عندهم موقع احترافي\n📊 [X]% ما عندهم نظام حجز أونلاين\n📊 [X]% غير مرئيين في بحث [اللغة]\n📊 [X]% معتمدين على واتساب فقط\n\nيتركون [X]% من الإيرادات المحتملة على الطاولة.\n\nلهذا بنينا Red Sea Digital Pro.\n\n#سياحة_البحر_الأحمر #ذكاء_سوقي #تسويق_سياحي #بيانات')">نسخ البوست</button>
+  </div>
+
+  <div class="post-template" id="pt-t5">
+    <div class="post-section">
+      <div class="post-section-label">المنصة</div>
+      <div class="post-section-value">جميع المنصات — مرة كل 3 أسابيع</div>
+    </div>
+    <div class="post-section">
+      <div class="post-section-label">القالب — عرض (ندرة)</div>
+      <div class="post-section-value">🎯 تشخيص رقمي مجاني — [N] أماكن هذا الأسبوع<br><br>
+إذا كان نشاطك السياحي في البحر الأحمر:<br>
+✓ عنده تقييمات ممتازة على جوجل<br>
+✓ ما عندهوش موقع أو عنده موقع قديم<br>
+✓ الحجوزات الأساسية عبر واتساب<br><br>
+سأحلل:<br>
+📍 ظهورك في جوجل مقابل أقوى 3 منافسين<br>
+📍 ماذا يجد السياح (أو لا يجدون) عندما يبحثون عنك<br>
+📍 الشيء رقم 1 الذي يمنع الحجوزات الأونلاين<br>
+📍 خارطة طريق 7 أيام للحل<br><br>
+مجاني تماماً. لا عرض بيعي. فقط تحليل صادق.<br><br>
+علق "تشخيص" أو راسلني — أول [N] يردون يحصلون على الأولوية.
+      <span class="hashtags">#تشخيص_مجاني #تدقيق_رقمي #وكالة_أداء_فاخر #نمو_سياحي</span></div>
+    </div>
+    <button class="copy-btn" onclick="copyTemplate(this, '🎯 تشخيص رقمي مجاني — [N] أماكن هذا الأسبوع\n\nإذا كان نشاطك السياحي في البحر الأحمر عنده تقييمات ممتازة لكن ما عندهوش موقع — أحلل حضورك مقابل منافسيك وأعطيك خارطة طريق.\n\nمجاني تماماً. لا عرض بيعي.\n\nعلق "تشخيص" أو راسلني.\n\n#تشخيص_مجاني #تدقيق_رقمي #وكالة_أداء_فاخر')">نسخ البوست</button>
+  </div>
+
+  <div class="post-template" id="pt-t6">
+    <div class="post-section">
+      <div class="post-section-label">المنصة</div>
+      <div class="post-section-value">Instagram — كاروسيل 5 شرائح أو Reel</div>
+    </div>
+    <div class="post-section">
+      <div class="post-section-label">القالب — Before/After (عربي)</div>
+      <div class="post-section-value">قبل ⚡ بعد<br><br>
+[نشاط تجاري] في [الموقع]<br><br>
+💬 قبل: واتساب فقط<br>
+🌊 بعد: موقع + حجز + SEO<br><br>
+بنينا لهم:<br>
+✅ موقع كامل [باللغات]<br>
+✅ نظام حجز أونلاين<br>
+✅ [X] صفحة خدمة/جولة<br><br>
+النتيجة؟ حجوزات من [السوق المستهدف] من أول أسبوع 🚀<br><br>
+نشاطك السياحي يستاهل وجود رقمي بمستوى عالمي 💪
+      <span class="hashtags">#قبل_وبعد #تصميم_مواقع #الغردقة #وكالة_أداء_فاخر #redseapro</span></div>
+    </div>
+    <button class="copy-btn" onclick="copyTemplate(this, 'قبل ⚡ بعد\n\n[نشاط تجاري] في [الموقع]\n\n💬 قبل: واتساب فقط\n🌊 بعد: موقع + حجز + SEO\n\nبنينا:\n✅ موقع كامل [باللغات]\n✅ نظام حجز أونلاين\n✅ [X] صفحة خدمة/جولة\n\nالنتيجة؟ حجوزات من أول أسبوع 🚀\n\nنشاطك السياحي يستاهل وجود رقمي بمستوى عالمي 💪\n\n#قبل_وبعد #تصميم_مواقع #الغردقة #وكالة_أداء_فاخر')">نسخ الكابشن</button>
+  </div>
+
+  <div class="post-template" id="pt-t7">
+    <div class="post-section">
+      <div class="post-section-label">المنصة</div>
+      <div class="post-section-value">TikTok / Instagram Reels — 60 ثانية</div>
+    </div>
+    <div class="post-section">
+      <div class="post-section-label">السكريبت — "كيف بنيت"</div>
+      <div class="post-section-value">[Hook 0-3s]: "بَنيت منصة سياحية كاملة من الصفر في [X] يوم — شوف إزاي 👇"<br><br>
+[Problem 3-10s]: "العميل جه بدون أي حاجة — لا موقع، لا هوية، لا محتوى، ولا صور. كان عنده تقييمات ممتازة على جوجل لكن مفيش أي وجود رقمي."<br><br>
+[Process 10-40s]: "اليوم 1-2: الهوية البصرية واللوجو / اليوم 3-4: كتبت كل محتوى الجولات / اليوم 5-7: بنيت الموقع بالكامل / اليوم 8-9: SEO + نظام الحجز / اليوم 10: Launch!"<br><br>
+[Result 40-55s]: "النتيجة؟ الموقع شغال — حجوزات من أوروبا من أول أسبوع."<br><br>
+[CTA 55-60s]: "لو نشاطك السياحي محتاج وجود رقمي بمستوى عالمي — الرابط في البايو 🔗"</div>
+    </div>
+    <button class="copy-btn" onclick="copyTemplate(this, 'TikTok/Reel Script — 60 ثانية\n\n[Hook]: بنيت منصة سياحية كاملة من الصفر في [X] يوم\n[Problem]: العميل جه بدون أي حاجة\n[Process]: اليوم 1-2 الهوية / 3-4 المحتوى / 5-7 الموقع / 8-9 SEO+حجز / 10 Launch\n[Result]: حجوزات من أوروبا من أول أسبوع\n[CTA]: الرابط في البايو\n\n#تصميم_مواقع #الغردقة #وكالة_أداء_فاخر #fyp')">نسخ السكريبت</button>
+  </div>
+
+  <div class="post-template" id="pt-t8">
+    <div class="post-section">
+      <div class="post-section-label">المنصة</div>
+      <div class="post-section-value">WhatsApp Business Status — يومي أو كل يومين</div>
+    </div>
+    <div class="post-section">
+      <div class="post-section-label">5 قوالب Status</div>
+      <div class="post-section-value">1️⃣ "🌊 Red Sea Digital Pro — وكالة الأداء الفاخر. تشخيص رقمي مجاني هذا الأسبوع 👇 واتساب"<br><br>
+2️⃣ "✅ انتهينا من منصة رقمية كاملة لشركة سياحة في الغردقة — 20+ جولة، نظام حجز، متعدد اللغات. نشاطك يستاهل نفس المستوى."<br><br>
+3️⃣ "💡 نصيحة اليوم: السياح يبحثون أونلاين قبل الحجز بأسابيع. لو مش موجود — بتخسر حجوزات يومياً."<br><br>
+4️⃣ "🎯 3 أماكن فاضية هذا الأسبوع للتشخيص الرقمي المجاني. أول 3 يتواصلوا."<br><br>
+5️⃣ "🔥 Before/After: من لا شيء إلى منصة رقمية متكاملة. هل موقعك يحتاج نفس التحويل؟"</div>
+    </div>
+    <button class="copy-btn" onclick="copyTemplate(this, '1️⃣ 🌊 Red Sea Digital Pro — وكالة الأداء الفاخر. تشخيص رقمي مجاني\n2️⃣ ✅ منصة رقمية كاملة لشركة سياحة — 20+ جولة، نظام حجز\n3️⃣ 💡 السياح يبحثون أونلاين قبل الحجز — بتخسر حجوزات\n4️⃣ 🎯 3 أماكن فاضية للتشخيص الرقمي المجاني\n5️⃣ 🔥 Before/After: من لا شيء إلى منصة رقمية متكاملة')">نسخ الكل</button>
+  </div>
+</div>
+
+<!-- ════════════════════════════════
+     PAGE 6: الهوكس
+════════════════════════════════ -->
+<div class="page" id="page-hooks">
+  <div class="page-header">
+    <div class="eyebrow">Opening Lines</div>
+    <h1 class="page-title">50+ هوك — أول سطر يصنع الفرق</h1>
+    <p class="page-sub">السطر الأول هو 80% من نجاح البوست. مقسمة حسب المحفز النفسي والمنصة ومرحلة الـ Pipeline. اضغط لنسخ أي هوك.</p>
+  </div>
+
+  <div class="section">
+    <div class="hook-group">
+      <div class="hook-group-title">🔥 صادم & بيانات — LinkedIn (B2B)</div>
+      <div class="hook-item" onclick="copyHook(this)"><span>منتجعك الفاخر عنده آلاف التقييمات لكن صفر حجوزات مباشرة. تعرف كم تخسر سنوياً؟</span><span class="hook-meta">AR · LinkedIn</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>دققت 50 شركة سياحة في البحر الأحمر. 2 فقط عندهم نظام رقمي احترافي. فجوة بمليارات.</span><span class="hook-meta">AR · LinkedIn</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>المستثمرون الخليجيون يضخون الملايين في سياحة البحر الأحمر. معظم حضورهم الرقمي يبدو من 2013.</span><span class="hook-meta">AR · LinkedIn</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>السياح الألمان يصرفون 40% أكثر. 90% من شركات البحر الأحمر غير موجودة في البحث الألماني. هذه هي الفجوة التي نسدها.</span><span class="hook-meta">AR · LinkedIn</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>منافسك أطلق نظام حجز. كل يوم تتأخر — أنت تهديه إيرادات.</span><span class="hook-meta">AR · LinkedIn</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>أفضل مركز غوص في الغردقة عنده 4000+ تقييم وما عندهوش Pipeline. تأمل.</span><span class="hook-meta">AR · LinkedIn</span></div>
+    </div>
+
+    <div class="hook-group">
+      <div class="hook-group-title">💡 تعليمي — LinkedIn (بناء ثقة)</div>
+      <div class="hook-item" onclick="copyHook(this)"><span>معظم مواقع السياحة الفاخرة عندها نفس 5 أخطاء. إليك كيف تصلحها كلها هذا الأسبوع.</span><span class="hook-meta">AR · LinkedIn</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>إذا كان السائح لا يستطيع الحجز من جوجل في 3 نقرات — أنت تخسر لصالح من يستطيع.</span><span class="hook-meta">AR · LinkedIn</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>"موقع جميل، بدون حجوزات" — أكثر شكوى نسمعها. إليك ما ينقص.</span><span class="hook-meta">AR · LinkedIn</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>حللت 100+ موقع سياحي. المواقع التي تولد إيرادات فعلاً تشترك في 3 أشياء.</span><span class="hook-meta">AR · LinkedIn</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>مساءلة Pipeline ليست كلمة رنانة — هي كيف نبني كل engagement. إليك معناها عملياً.</span><span class="hook-meta">AR · LinkedIn</span></div>
+    </div>
+
+    <div class="hook-group">
+      <div class="hook-group-title">🌊 قصة وسلطة — LinkedIn (علاقة)</div>
+      <div class="hook-item" onclick="copyHook(this)"><span>نشأت في صناعة السياحة في الغردقة. رأيت أعمالاً فاخرة رائعة تفشل أونلاين بينما أعمال متوسطة تنجح. الفرق دائماً هو البنية الرقمية.</span><span class="hook-meta">AR · LinkedIn</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>الأسبوع الماضي دخلت فندق 5 نجوم في الجونة عنده 4000+ تقييم وما عندهوش نظام حجز. المدير سأل "نحتاج واحد فعلاً؟" أريته analytics. اتصل بي اليوم التالي.</span><span class="hook-meta">AR · LinkedIn</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>نحن لا نبني مواقع. نبني خطوط أنابيب رقمية تربط تميزك الميداني بإيرادات أونلاين.</span><span class="hook-meta">AR · LinkedIn</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>خبرتي من وكالة عالمية علمتني: الجماليات تجذب الانتباه، لكن المساءلة تغلق الصفقات.</span><span class="hook-meta">AR · LinkedIn</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>نظام النمو الموجي™ لم يولد في قاعة اجتماعات. جاء من بناء 30+ نظاماً رقمياً لشركات سياحية.</span><span class="hook-meta">AR · LinkedIn</span></div>
+    </div>
+
+    <div class="hook-group">
+      <div class="hook-group-title">🎯 هوكس عربية — Instagram & TikTok</div>
+      <div class="hook-item" onclick="copyHook(this)"><span>منتجع في الجونة عنده آلاف التقييمات وما عندهوش نظام حجز. ده مش معقول 🤯</span><span class="hook-meta">AR · TikTok/IG</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>بنيت منصة رقمية كاملة لشركة سياحة في 10 أيام — شوف إزاي خطوة بخطوة 👇</span><span class="hook-meta">AR · TikTok</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>73% من السياح بيدوروا على الإنترنت قبل ما يسافروا. لو مش موجود — بتخسر حجوزات كل يوم 📊</span><span class="hook-meta">AR · IG</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>قبل وبعد: موقع شركة سياحة في الغردقة — الفرق واضح 😮</span><span class="hook-meta">AR · IG Reel</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>مستثمر خليجي عنده مشروع في الغردقة وموقعه مش بمستوى الاستثمار. إحنا هنغير ده.</span><span class="hook-meta">AR · LinkedIn</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>3 أسباب تخلي مواقع السياحة في البحر الأحمر ضعيفة — وإزاي تتجنبها 🎯</span><span class="hook-meta">AR · TikTok/IG</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>إحنا مش مجرد وكالة تصميم. إحنا وكالة أداء فاخر — الفرق هو مساءلة Pipeline.</span><span class="hook-meta">AR · LinkedIn</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>السياح الألمان بيدوروا باللغة الألمانية. موقعك بالعربي بس — فانت مش موجود بالنسبة لهم.</span><span class="hook-meta">AR · FB</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>مش كل موقع يتحول لحجوزات. الفرق في النظام — إزاي تبني digital ecosystem مش مجرد website.</span><span class="hook-meta">AR · IG</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>صاحب مطعم في الغردقة — 4300 تقييم وما عندهوش موقع. قلتله بتخسر كام حجز يومياً؟</span><span class="hook-meta">AR · TikTok</span></div>
+    </div>
+
+    <div class="hook-group">
+      <div class="hook-group-title">💰 خليجي — LinkedIn (قيمة عالية)</div>
+      <div class="hook-item" onclick="copyHook(this)"><span>تستثمر الملايين في سياحة البحر الأحمر. حضورك الرقمي يجب أن يعكس هذا الاستثمار.</span><span class="hook-meta">AR · GCC</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>معظم وكالات البحر الأحمر تقدم قوالب جاهزة. نحن نقدم مساءلة Pipeline مرتبطة بأهداف إيراداتك.</span><span class="hook-meta">AR · GCC</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>عقارك في الجونة يستحق نظاماً رقمياً يضاهي تميزه المادي. إليك كيف.</span><span class="hook-meta">AR · GCC</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>الأداء الفاخر — تقاطع التصميم العالمي مع تأثير إيرادات قابل للقياس. هذه فئتنا.</span><span class="hook-meta">AR · GCC</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>نحن لا نأخذ retainers من أجل retainers. نربط رسومنا بأداء Pipeline. إذا لم تنمو، لم نربح.</span><span class="hook-meta">AR · GCC</span></div>
+    </div>
+
+    <div class="hook-group">
+      <div class="hook-group-title">⚡ قصيرة وقوية — Instagram Captions</div>
+      <div class="hook-item" onclick="copyHook(this)"><span>قبل: لا Pipeline. بعد: نظام رقمي متكامل. نفس النشاط، مسار مختلف.</span><span class="hook-meta">AR · IG</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>ضيوفك يبحثون بالإنجليزي والألماني والعربي. هل موقعك متوفر بالثلاثة؟</span><span class="hook-meta">AR · IG</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>الأداء الفاخر ليس شعاراً. إنها كيف نبني كل مشروع.</span><span class="hook-meta">AR · IG</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>موقع = صفحة. نظام رقمي = محرك إيرادات. نحن نبني الثاني.</span><span class="hook-meta">AR · IG</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>تقييماتك على جوجل تقول إنك ممتاز. موقعك يجب أن يثبت ذلك.</span><span class="hook-meta">AR · IG</span></div>
+    </div>
+
+    <div class="hook-group">
+      <div class="hook-group-title">🔄 تفاعل — مجموعات Facebook</div>
+      <div class="hook-item" onclick="copyHook(this)"><span>سؤال لأصحاب الأعمال في الغردقة: كم حجزة بتاخدوا من الإنترنت مقارنة بالتوصية؟ 👇</span><span class="hook-meta">AR · FB</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>مين جرب قبل كده يطور موقع نشاطه التجاري؟ إيه اللي اشتغل وإيه اللي لأ؟</span><span class="hook-meta">AR · FB</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>لو تقدر تغير حاجة واحدة في موقع نشاطك التجاري — إيه هي؟</span><span class="hook-meta">AR · FB</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>Question for expat business owners: What's your biggest digital challenge reaching European tourists?</span><span class="hook-meta">EN · FB</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════
+     PAGE 7: الهاشتاقات
+════════════════════════════════ -->
+<div class="page" id="page-hashtags">
+  <div class="page-header">
+    <div class="eyebrow">Search Strategy</div>
+    <h1 class="page-title">مجموعات الهاشتاقات</h1>
+    <p class="page-sub">مجموعات جاهزة لكل منصة. استخدم 5-8 في LinkedIn و20-30 في Instagram. اضغط على أي هاشتاق لنسخه.</p>
+  </div>
+
+  <div class="section">
+    <div class="grid-2">
+      <div>
+        <div class="tag-group">
+          <div class="tag-group-title">LinkedIn — أساسي (5-8 لكل بوست)</div>
+          <div class="tag-wrap">
+            <span class="tag" onclick="copyTag(this)">#وكالة_أداء_فاخر</span>
+            <span class="tag" onclick="copyTag(this)">#RedSeaDigitalPro</span>
+            <span class="tag" onclick="copyTag(this)">#تصميم_مواقع_سياحية</span>
+            <span class="tag" onclick="copyTag(this)">#سياحة_البحر_الأحمر</span>
+            <span class="tag" onclick="copyTag(this)">#تسويق_سياحي</span>
+            <span class="tag" onclick="copyTag(this)">#فخامة_رقمية</span>
+            <span class="tag" onclick="copyTag(this)">#نظام_نمو_موجي</span>
+            <span class="tag" onclick="copyTag(this)">#مساءلة_Pipeline</span>
+            <span class="tag" onclick="copyTag(this)">#الغردقة</span>
+            <span class="tag" onclick="copyTag(this)">#استثمار_خليجي</span>
+            <span class="tag" onclick="copyTag(this)">#تكنولوجيا_ضيافة</span>
+            <span class="tag" onclick="copyTag(this)">#جودة_فاخرة</span>
+          </div>
+          <button class="copy-btn" onclick="copyText(this, '#وكالة_أداء_فاخر #RedSeaDigitalPro #تصميم_مواقع_سياحية #سياحة_البحر_الأحمر #تسويق_سياحي #فخامة_رقمية #نظام_نمو_موجي #مساءلة_Pipeline')">نسخ المجموعة</button>
+        </div>
+
+        <div class="tag-group">
+          <div class="tag-group-title">Instagram EN — مزيج (15-25 لكل بوست)</div>
+          <div class="tag-wrap">
+            <span class="tag" onclick="copyTag(this)">#RedSeaDigitalPro</span>
+            <span class="tag" onclick="copyTag(this)">#LuxuryAgency</span>
+            <span class="tag" onclick="copyTag(this)">#TourismWebDesign</span>
+            <span class="tag" onclick="copyTag(this)">#HurghadaEgypt</span>
+            <span class="tag" onclick="copyTag(this)">#RedSea</span>
+            <span class="tag" onclick="copyTag(this)">#ElGouna</span>
+            <span class="tag" onclick="copyTag(this)">#LuxuryTourism</span>
+            <span class="tag" onclick="copyTag(this)">#BeforeAfterWebsite</span>
+            <span class="tag" onclick="copyTag(this)">#BookingSystem</span>
+            <span class="tag" onclick="copyTag(this)">#DigitalAgency</span>
+            <span class="tag" onclick="copyTag(this)">#SEOTourism</span>
+            <span class="tag" onclick="copyTag(this)">#LuxuryTravelTech</span>
+            <span class="tag" onclick="copyTag(this)">#PipelineAccountability</span>
+            <span class="tag" onclick="copyTag(this)">#GCCInvestment</span>
+            <span class="tag" onclick="copyTag(this)">#HospitalityMarketing</span>
+          </div>
+          <button class="copy-btn" onclick="copyText(this, '#RedSeaDigitalPro #LuxuryAgency #TourismWebDesign #HurghadaEgypt #RedSea #ElGouna #LuxuryTourism #BeforeAfterWebsite #BookingSystem #DigitalAgency #SEOTourism #LuxuryTravelTech #PipelineAccountability')">نسخ EN</button>
+        </div>
+      </div>
+
+      <div>
+        <div class="tag-group">
+          <div class="tag-group-title">Instagram AR — عربي (15-20 لكل بوست)</div>
+          <div class="tag-wrap">
+            <span class="tag" onclick="copyTag(this)">#وكالة_أداء_فاخر</span>
+            <span class="tag" onclick="copyTag(this)">#تصميم_مواقع</span>
+            <span class="tag" onclick="copyTag(this)">#الغردقة</span>
+            <span class="tag" onclick="copyTag(this)">#البحر_الأحمر</span>
+            <span class="tag" onclick="copyTag(this)">#سياحة_مصر</span>
+            <span class="tag" onclick="copyTag(this)">#تسويق_رقمي</span>
+            <span class="tag" onclick="copyTag(this)">#مواقع_سياحية</span>
+            <span class="tag" onclick="copyTag(this)">#هوية_بصرية</span>
+            <span class="tag" onclick="copyTag(this)">#ريد_سي_ديجيتال_برو</span>
+            <span class="tag" onclick="copyTag(this)">#سياحة_فاخرة</span>
+            <span class="tag" onclick="copyTag(this)">#سيو</span>
+            <span class="tag" onclick="copyTag(this)">#أعمال_الغردقة</span>
+            <span class="tag" onclick="copyTag(this)">#قبل_وبعد</span>
+            <span class="tag" onclick="copyTag(this)">#استثمار_سياحي</span>
+          </div>
+          <button class="copy-btn" onclick="copyText(this, '#وكالة_أداء_فاخر #تصميم_مواقع #الغردقة #البحر_الأحمر #سياحة_مصر #تسويق_رقمي #مواقع_سياحية #هوية_بصرية #ريد_سي_ديجيتال_برو #سياحة_فاخرة #قبل_وبعد')">نسخ AR</button>
+        </div>
+
+        <div class="tag-group">
+          <div class="tag-group-title">TikTok — انتشار فيروسي</div>
+          <div class="tag-wrap">
+            <span class="tag" onclick="copyTag(this)">#وكالة_أداء_فاخر</span>
+            <span class="tag" onclick="copyTag(this)">#تصميم_مواقع</span>
+            <span class="tag" onclick="copyTag(this)">#الغردقة</span>
+            <span class="tag" onclick="copyTag(this)">#ديجيتال_ماركتينج</span>
+            <span class="tag" onclick="copyTag(this)">#fyp</span>
+            <span class="tag" onclick="copyTag(this)">#foryou</span>
+            <span class="tag" onclick="copyTag(this)">#WebDesign</span>
+            <span class="tag" onclick="copyTag(this)">#BeforeAfter</span>
+            <span class="tag" onclick="copyTag(this)">#قبل_وبعد</span>
+            <span class="tag" onclick="copyTag(this)">#مصر</span>
+            <span class="tag" onclick="copyTag(this)">#سياحة</span>
+            <span class="tag" onclick="copyTag(this)">#RedSea</span>
+          </div>
+          <button class="copy-btn" onclick="copyText(this, '#وكالة_أداء_فاخر #تصميم_مواقع #الغردقة #ديجيتال_ماركتينج #fyp #foryou #WebDesign #BeforeAfter #قبل_وبعد #مصر #سياحة #RedSea')">نسخ TikTok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════
+     PAGE 8: التحليلات
+════════════════════════════════ -->
+<div class="page" id="page-analytics">
+  <div class="page-header">
+    <div class="eyebrow">Measurement</div>
+    <h1 class="page-title">مؤشرات الأداء والتحليلات</h1>
+    <p class="page-sub">ما يُقاس يُحسّن. تابع هذه المؤشرات أسبوعياً، راجع شهرياً، غير اتجاهك ربع سنوياً.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><strong>شجرة المؤشرات</strong></div>
+    <div class="metric-row m-header">
+      <div class="m-label">المؤشر</div>
+      <div>الهدف</div>
+      <div>الحالي</div>
+      <div>الحالة</div>
+    </div>
+    <div class="metric-row">
+      <div class="m-label">LinkedIn — مشاهدات البروفايل / أسبوع</div>
+      <div class="m-target">500+</div>
+      <div class="m-current">—</div>
+      <div class="m-current">قيد البدء</div>
+    </div>
+    <div class="metric-row">
+      <div class="m-label">LinkedIn — رسائل واردة / أسبوع</div>
+      <div class="m-target">5+</div>
+      <div class="m-current">—</div>
+      <div class="m-current">قيد البدء</div>
+    </div>
+    <div class="metric-row">
+      <div class="m-label">LinkedIn — معدل تفاعل البوستات</div>
+      <div class="m-target">3%+</div>
+      <div class="m-current">—</div>
+      <div class="m-current">قيد البدء</div>
+    </div>
+    <div class="metric-row">
+      <div class="m-label">Instagram — نمو المتابعين / أسبوع</div>
+      <div class="m-target">50+</div>
+      <div class="m-current">—</div>
+      <div class="m-current">قيد البدء</div>
+    </div>
+    <div class="metric-row">
+      <div class="m-label">Instagram — مشاهدات الـ Reel / بوست</div>
+      <div class="m-target">2,000+</div>
+      <div class="m-current">—</div>
+      <div class="m-current">قيد البدء</div>
+    </div>
+    <div class="metric-row">
+      <div class="m-label">Instagram — نقرات للموقع / أسبوع</div>
+      <div class="m-target">100+</div>
+      <div class="m-current">—</div>
+      <div class="m-current">قيد البدء</div>
+    </div>
+    <div class="metric-row">
+      <div class="m-label">TikTok — مشاهدات الفيديو / بوست</div>
+      <div class="m-target">5,000+</div>
+      <div class="m-current">—</div>
+      <div class="m-current">قيد البدء</div>
+    </div>
+    <div class="metric-row">
+      <div class="m-label">TikTok — زيارات البروفايل / أسبوع</div>
+      <div class="m-target">200+</div>
+      <div class="m-current">—</div>
+      <div class="m-current">قيد البدء</div>
+    </div>
+    <div class="metric-row">
+      <div class="m-label">واتساب — جهات اتصال جديدة / أسبوع</div>
+      <div class="m-target">20+</div>
+      <div class="m-current">—</div>
+      <div class="m-current">قيد البدء</div>
+    </div>
+    <div class="metric-row">
+      <div class="m-label">عام — طلبات التشخيص الرقمي / أسبوع</div>
+      <div class="m-target">5+</div>
+      <div class="m-current">—</div>
+      <div class="m-current">قيد البدء</div>
+    </div>
+    <div class="metric-row">
+      <div class="m-label">عام — استفسارات retainers / شهر</div>
+      <div class="m-target">3+</div>
+      <div class="m-current">—</div>
+      <div class="m-current">قيد البدء</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><strong>بروتوكول المراجعة الأسبوعية</strong></div>
+    <div class="text-block">
+      <p>كل يوم أحد، راجع بيانات الأسبوع الماضي:</p>
+      <ol style="list-style:decimal;padding-right:1.2rem">
+        <li style="margin-bottom:0.5rem"><strong>أفضل 3 بوستات تفاعلاً</strong> — حدد ما عمل ولماذا</li>
+        <li style="margin-bottom:0.5rem"><strong>أسوأ 3 بوستات تفاعلاً</strong> — حدد ما لم يعمل وعدّل</li>
+        <li style="margin-bottom:0.5rem"><strong>مؤشرات Pipeline</strong> — كم رسالة، تعليق، طلب تشخيص ورد</li>
+        <li style="margin-bottom:0.5rem"><strong>نمو المتابعين</strong> — أي منصة نمت أكثر، أي محتوى قاد النمو</li>
+        <li style="margin-bottom:0.5rem"><strong>عدّل تقويم الأسبوع القادم</strong> بناءً على البيانات</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><strong>إطار اختبار A/B</strong></div>
+    <div class="text-block">
+      <p>اختبر متغيراً واحداً في كل مرة لكل منصة أسبوعياً:</p>
+      <ul>
+        <li><strong>الهوكس:</strong> اختبر سؤال vs حقيقة vs قصة — نفس المحتوى</li>
+        <li><strong>الصور:</strong> اختبر لقطة شاشة vs تصميم vs كاروسيل — نفس الكابشن</li>
+        <li><strong>الـ CTA:</strong> اختبر "راسلني" vs "علق" vs "الرابط في البايو"</li>
+        <li><strong>التوقيت:</strong> اختبر الأحد 9 صباحاً vs الأحد 7 مساءً</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><strong>هيكل التقرير الشهري</strong></div>
+    <div class="text-block">
+      <p>نهاية كل شهر، أعد تقرير صفحة واحدة:</p>
+      <ul>
+        <li><strong>النمو:</strong> متابعون جدد لكل منصة، إجمالي الوصول، أفضل محتوى</li>
+        <li><strong>Pipeline:</strong> استفسارات، طلبات تشخيص، مكالمات اكتشاف</li>
+        <li><strong>التحويل:</strong> نسبة التشخيص → مقترح → عميل</li>
+        <li><strong>إسناد الإيرادات:</strong> أي قناة قادت أي فرصة</li>
+        <li><strong>الشهر القادم:</strong> ثيمات المحتوى، المنصات المركزة، تجارب مخطط لها</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════
+     PAGE 9: الإعداد
+════════════════════════════════ -->
+<div class="page" id="page-setup">
+  <div class="page-header">
+    <div class="eyebrow">Launch Sequence</div>
+    <h1 class="page-title">قائمة الإعداد — خطوة بخطوة</h1>
+    <p class="page-sub">أكمل هذه الخطوات بالترتيب. التقدم يُحفظ محلياً. اضغط على أي مهمة لتحديدها كمكتملة.</p>
+  </div>
+
+  <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+  <div class="progress-text" id="progressText">0 / 28 مهمة مكتملة</div>
+
+  <div class="grid-2">
+    <div>
+      <div class="checklist">
+        <div class="checklist-title">LinkedIn — الأولوية 1</div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">أنشئ حساب: Red Sea Digital Pro (أو الاسم الشخصي مع عنوان الوكالة)</div><div class="check-note">صورة احترافية، banner باللوجو</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">Headline: "وكالة الأداء الفاخر | البحر الأحمر · الخليج"</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">انسخ الـ Bio من صفحة الاستراتيجية إلى قسم About</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">أضف Featured Section: رابط اللانضينج بيج</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">أنشئ Company Page: "Red Sea Digital Pro"</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">انشر بوست الإطلاق (راجع التقويم الشهر 1)</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">تواصل مع 50+ صانع قرار في سياحة البحر الأحمر يومياً</div><div class="check-note">الهدف: مستثمرين خليجيين، مديري فنادق، مراكز غوص</div></div></div>
+      </div>
+
+      <div class="checklist">
+        <div class="checklist-title">Instagram</div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">Handle: @redseadigitalpro</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">حوّل إلى Business Account</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">صورة البروفايل: اللوجو على خلفية بيضاء/نيلي</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">انسخ الـ Bio من صفحة الاستراتيجية</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">أضف رابط اللانضينج بيج</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">Highlights: أعمالنا / دراسات حالة / نصائح / عن الوكالة</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">انشر كاروسيل الإطلاق (5 شرائح)</div></div></div>
+      </div>
+
+      <div class="checklist">
+        <div class="checklist-title">TikTok</div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">Handle: @redseadigitalpro</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">حوّل إلى Business Account</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">انسخ الـ Bio من صفحة الاستراتيجية</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">انشر أول فيديو: "من أنا ولماذا Red Sea Digital Pro" — 30 ثانية</div></div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="checklist">
+        <div class="checklist-title">Facebook</div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">أنشئ Business Page: "Red Sea Digital Pro"</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">صورة البروفايل + الغلاف متناسقين مع الهوية</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">انسخ الـ Bio من صفحة الاستراتيجية</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">انضم للمجموعات: Hurghada Expats، Red Sea Business Network، وغيرها</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">انشر بوست تعريفي في كل مجموعة (قيمة أولاً)</div></div></div>
+      </div>
+
+      <div class="checklist">
+        <div class="checklist-title">WhatsApp Business</div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">حمّل تطبيق WhatsApp Business</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">أعد Business Profile باللوجو والوصف وساعات العمل</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">أنشئ Catalog: الباقات الأربعة مع الأوصاف</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">أعد Quick Replies: /audit, /price, /portfolio, /hello</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">انشر أول Status: إعلان الإطلاق + CTA</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">أرسل broadcast لجهات الاتصال: "Red Sea Digital Pro أصبحت رسمياً"</div></div></div>
+      </div>
+
+      <div class="checklist">
+        <div class="checklist-title">الموقع والأدوات</div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">ارفع اللانضينج بيج (red-sea-digital-pro-ar.html) على الاستضافة</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">اربط الدومين: redseadigital.pro</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">ركّب Google Analytics / Tag Manager</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">أنشئ صفحة Link-in-Bio لـ Instagram</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">ركّب أداة جدولة (Buffer أو Meta Business Suite)</div><div class="check-note">جدول أول أسبوعين من المحتوى</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">أنشئ نموذج استقبال طلبات التشخيص الرقمي</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  document.querySelector('.tab-btn[onclick*="' + id + '"]').classList.add('active');
+  document.querySelector('.nav-scroll').scrollLeft = 0;
+}
+
+function showTemplate(id) {
+  document.querySelectorAll('.post-template').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.post-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById('pt-' + id).classList.add('active');
+  document.querySelector('.post-tab[onclick*="' + id + '"]').classList.add('active');
+}
+
+function copyText(btn, text) {
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = 'تم النسخ!';
+    setTimeout(() => { btn.textContent = btn.classList.contains('copy-btn') && btn.textContent.includes('نسخ') ? btn.textContent : 'نسخ'; }, 1500);
+  });
+}
+
+function copyHook(el) {
+  let text = el.querySelector('span:first-child').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    let orig = el.innerHTML;
+    el.innerHTML = '<span style="color:var(--indigo)">✓ تم النسخ!</span><span class="hook-meta">' + el.querySelector('.hook-meta').textContent + '</span>';
+    setTimeout(() => { el.innerHTML = orig; }, 1200);
+  });
+}
+
+function copyTag(el) {
+  navigator.clipboard.writeText(el.textContent.trim());
+  el.style.borderColor = 'var(--indigo)';
+  el.style.color = 'var(--indigo)';
+  setTimeout(() => { el.style.borderColor = ''; el.style.color = ''; }, 800);
+}
+
+function copyTemplate(btn, text) {
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = '✓ تم النسخ!';
+    setTimeout(() => { btn.textContent = 'نسخ البوست كامل'; }, 1500);
+  });
+}
+
+function toggleCheck(el) {
+  el.classList.toggle('done');
+  let box = el.querySelector('.check-box');
+  if (el.classList.contains('done')) {
+    box.innerHTML = '✓';
+  } else {
+    box.innerHTML = '';
+  }
+  updateProgress();
+}
+
+function updateProgress() {
+  let total = document.querySelectorAll('.check-item').length;
+  let done = document.querySelectorAll('.check-item.done').length;
+  let pct = total > 0 ? (done / total) * 100 : 0;
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressText').textContent = done + ' / ' + total + ' مهمة مكتملة';
+}
+</script>
+</body>
+</html>

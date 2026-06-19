@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Red Sea Digital Pro — Social Media Strategy</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --white: #FAFAF8;
+  --charcoal: #1A1A1A;
+  --mid: #2A2A2A;
+  --light: #E8E6E1;
+  --muted: #8A8A86;
+  --indigo: #4A5CF6;
+  --indigo-light: rgba(74,92,246,0.08);
+  --indigo-border: rgba(74,92,246,0.2);
+  --border: rgba(26,26,26,0.08);
+  --inter: 'Inter', sans-serif;
+  --tajawal: 'Tajawal', sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--white);
+  color: var(--charcoal);
+  font-family: var(--inter);
+  font-weight: 300;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+::selection { background: var(--indigo); color: var(--white); }
+::-webkit-scrollbar { width: 2px; }
+::-webkit-scrollbar-thumb { background: var(--indigo); }
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(250,250,248,0.97);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 2.5rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+}
+.logo {
+  font-family: var(--inter); font-weight: 300; font-size: 0.8rem;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--charcoal);
+  white-space: nowrap;
+}
+.logo em { font-style: normal; font-weight: 500; color: var(--indigo); }
+.nav-scroll {
+  display: flex; gap: 0.2rem; overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.nav-scroll::-webkit-scrollbar { height: 0; }
+.tab-btn {
+  background: none; border: none;
+  padding: 0.4rem 0.9rem;
+  font-family: var(--inter); font-weight: 300; font-size: 0.72rem;
+  letter-spacing: 0.03em; color: var(--muted);
+  cursor: pointer; transition: all 0.2s; white-space: nowrap;
+}
+.tab-btn:hover { color: var(--charcoal); }
+.tab-btn.active { color: var(--indigo); font-weight: 500; }
+
+/* PAGES */
+.page { display: none; padding: 3rem 2.5rem; max-width: 1200px; margin: 0 auto; }
+.page.active { display: block; }
+
+/* TYPOGRAPHY */
+.page-header { margin-bottom: 3rem; max-width: 640px; }
+.eyebrow {
+  font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--indigo); margin-bottom: 0.75rem; font-weight: 400;
+}
+.page-title {
+  font-family: var(--inter); font-weight: 300;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 1rem;
+}
+.page-sub { font-size: 0.9rem; color: var(--muted); line-height: 1.8; }
+
+/* SECTIONS */
+.section { margin-bottom: 4rem; }
+.section-title {
+  font-family: var(--inter); font-weight: 300;
+  font-size: 1.1rem; letter-spacing: -0.01em;
+  margin-bottom: 1rem; padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.section-title strong { font-weight: 500; color: var(--indigo); }
+
+/* TEXT BLOCKS */
+.text-block { font-size: 0.85rem; line-height: 1.9; color: var(--charcoal); max-width: 680px; }
+.text-block .label { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.3rem; }
+.text-block p { margin-bottom: 1rem; }
+.text-block ul { list-style: none; margin-bottom: 1rem; }
+.text-block ul li { padding-left: 1rem; position: relative; margin-bottom: 0.3rem; }
+.text-block ul li::before { content: '—'; position: absolute; left: 0; color: var(--indigo); }
+
+/* GRID LAYOUTS (no cards, no rounded boxes) */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+
+/* PLATFORM ENTRY */
+.platform-entry { border-top: 1px solid var(--border); padding-top: 1.5rem; margin-bottom: 2rem; }
+.platform-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem; }
+.platform-name { font-family: var(--inter); font-weight: 500; font-size: 1rem; }
+.platform-priority { font-size: 0.65rem; color: var(--indigo); letter-spacing: 0.05em; }
+.platform-role { font-size: 0.82rem; color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
+.platform-stats { display: flex; gap: 1.5rem; }
+.platform-stat { font-size: 0.75rem; }
+.platform-stat strong { font-weight: 500; color: var(--indigo); }
+.platform-stat span { color: var(--muted); margin-left: 0.3rem; font-size: 0.65rem; }
+.bio-block { font-family: var(--inter); font-size: 0.78rem; line-height: 1.8; color: var(--charcoal); padding: 1.2rem 0; border-top: 1px solid var(--border); margin-top: 1rem; white-space: pre-line; }
+.copy-btn {
+  background: none; border: 1px solid var(--border);
+  padding: 0.3rem 0.7rem; font-family: var(--inter); font-weight: 300;
+  font-size: 0.65rem; color: var(--muted); cursor: pointer; transition: all 0.2s;
+}
+.copy-btn:hover { border-color: var(--indigo); color: var(--indigo); }
+
+/* PILLAR */
+.pillar-entry { border-top: 1px solid var(--border); padding-top: 1.5rem; margin-bottom: 2rem; }
+.pillar-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem; }
+.pillar-name { font-family: var(--inter); font-weight: 500; font-size: 0.95rem; }
+.pillar-pct { font-size: 1.2rem; font-weight: 300; color: var(--indigo); }
+.pillar-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.8; margin-bottom: 0.8rem; }
+.pillar-examples { list-style: none; font-size: 0.78rem; color: var(--muted); }
+.pillar-examples li { padding-left: 1rem; position: relative; margin-bottom: 0.2rem; }
+.pillar-examples li::before { content: '→'; position: absolute; left: 0; color: var(--indigo); }
+
+/* CALENDAR */
+.month-block { margin-bottom: 3rem; }
+.month-label {
+  font-family: var(--inter); font-weight: 300; font-size: 1rem;
+  padding-bottom: 0.8rem; border-bottom: 1px solid var(--border);
+  margin-bottom: 1.5rem;
+}
+.month-label em { font-style: normal; font-weight: 500; color: var(--indigo); }
+.cal-row {
+  display: grid; grid-template-columns: 90px 1fr;
+  gap: 0.5rem; margin-bottom: 0.4rem;
+  font-size: 0.78rem; line-height: 1.6;
+  padding: 0.4rem 0;
+}
+.cal-day { font-size: 0.65rem; color: var(--muted); padding-top: 0.2rem; letter-spacing: 0.05em; }
+.cal-content { color: var(--charcoal); }
+.cal-content .pf { color: var(--indigo); font-weight: 500; }
+.cal-content .plat { font-size: 0.65rem; color: var(--muted); }
+
+/* POST TEMPLATE */
+.post-tabs { display: flex; gap: 0; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
+.post-tab {
+  background: none; border: none;
+  padding: 0.6rem 1.2rem;
+  font-family: var(--inter); font-weight: 300; font-size: 0.75rem;
+  color: var(--muted); cursor: pointer; transition: all 0.2s;
+  border-bottom: 1px solid transparent; margin-bottom: -1px;
+}
+.post-tab:hover { color: var(--charcoal); }
+.post-tab.active { color: var(--indigo); font-weight: 500; border-bottom-color: var(--indigo); }
+.post-template { display: none; }
+.post-template.active { display: block; }
+.post-section { margin-bottom: 2rem; }
+.post-section-label { font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+.post-section-value { font-size: 0.85rem; line-height: 1.8; white-space: pre-line; }
+.post-section-value .hashtags { display: block; margin-top: 0.8rem; font-size: 0.72rem; color: var(--indigo); }
+
+/* HOOKS */
+.hook-group { margin-bottom: 2.5rem; }
+.hook-group-title {
+  font-family: var(--inter); font-weight: 400; font-size: 0.75rem;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 1rem;
+}
+.hook-item {
+  padding: 0.7rem 0; border-top: 1px solid var(--border);
+  font-size: 0.82rem; line-height: 1.7; color: var(--charcoal);
+  cursor: pointer; transition: all 0.2s;
+  display: flex; justify-content: space-between; gap: 1rem;
+}
+.hook-item:hover { color: var(--indigo); }
+.hook-item .hook-meta { font-size: 0.6rem; color: var(--muted); flex-shrink: 0; }
+.hook-item .hook-lang { font-family: var(--tajawal); }
+
+/* HASHTAGS */
+.tag-group { margin-bottom: 2rem; }
+.tag-group-title { font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.8rem; }
+.tag-wrap { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.5rem; }
+.tag {
+  background: none; border: 1px solid var(--border);
+  padding: 0.2rem 0.6rem; font-family: var(--inter); font-weight: 300;
+  font-size: 0.72rem; color: var(--charcoal); cursor: pointer; transition: all 0.2s;
+}
+.tag:hover { border-color: var(--indigo); color: var(--indigo); }
+.tag.ar { font-family: var(--tajawal); }
+
+/* ANALYTICS */
+.metric-row {
+  padding: 0.8rem 0; border-top: 1px solid var(--border);
+  display: grid; grid-template-columns: 1fr 80px 80px 80px;
+  gap: 1rem; font-size: 0.82rem;
+}
+.metric-row .m-label { color: var(--charcoal); }
+.metric-row .m-target { color: var(--indigo); font-weight: 500; }
+.metric-row .m-current { color: var(--muted); }
+.metric-row.m-header { font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); border-top: none; padding-bottom: 0.3rem; }
+
+/* SETUP CHECKLIST */
+.checklist { margin-bottom: 2rem; }
+.checklist-title { font-family: var(--inter); font-weight: 400; font-size: 0.85rem; margin-bottom: 1rem; }
+.check-item {
+  display: flex; align-items: flex-start; gap: 0.8rem;
+  padding: 0.6rem 0; border-top: 1px solid var(--border);
+  cursor: pointer; transition: all 0.2s;
+}
+.check-item:hover { color: var(--indigo); }
+.check-item.done { color: var(--muted); }
+.check-box {
+  width: 14px; height: 14px; border: 1.5px solid var(--border);
+  flex-shrink: 0; margin-top: 3px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.5rem; transition: all 0.2s;
+}
+.check-item.done .check-box { background: var(--charcoal); border-color: var(--charcoal); color: var(--white); }
+.check-text { font-size: 0.82rem; line-height: 1.5; }
+.check-note { font-size: 0.68rem; color: var(--muted); margin-top: 0.1rem; }
+.progress-bar { height: 1px; background: var(--border); margin-bottom: 0.5rem; position: relative; }
+.progress-fill { height: 1px; background: var(--indigo); transition: width 0.3s; }
+.progress-text { font-size: 0.65rem; color: var(--muted); margin-bottom: 1.5rem; }
+
+/* RESPONSIVE */
+@media(max-width:768px) {
+  nav { padding: 0.8rem 1rem; flex-direction: column; align-items: flex-start; }
+  .page { padding: 2rem 1rem; }
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .cal-row { grid-template-columns: 60px 1fr; }
+  .metric-row { grid-template-columns: 1fr 60px 60px 60px; }
+  .post-tabs { overflow-x: auto; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">RED SEA DIGITAL <em>PRO</em></div>
+  <div class="nav-scroll">
+    <button class="tab-btn active" onclick="showPage('strategy')">Strategy</button>
+    <button class="tab-btn" onclick="showPage('audience')">Audience</button>
+    <button class="tab-btn" onclick="showPage('content')">Content</button>
+    <button class="tab-btn" onclick="showPage('calendar')">Calendar</button>
+    <button class="tab-btn" onclick="showPage('templates')">Templates</button>
+    <button class="tab-btn" onclick="showPage('hooks')">Hooks</button>
+    <button class="tab-btn" onclick="showPage('hashtags')">Hashtags</button>
+    <button class="tab-btn" onclick="showPage('analytics')">Analytics</button>
+    <button class="tab-btn" onclick="showPage('setup')">Setup</button>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════
+     PAGE 1: STRATEGY
+════════════════════════════════ -->
+<div class="page active" id="page-strategy">
+  <div class="page-header">
+    <div class="eyebrow">Foundation</div>
+    <h1 class="page-title">Social Media Strategy</h1>
+    <p class="page-sub">Elite Performance Luxury Agency positioning across platforms. Every post serves a purpose — pipeline accountability, authority building, or direct conversion.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><strong>01</strong> The Red Sea Growth System™</div>
+    <div class="text-block">
+      <p>Our social media presence is the public face of a proprietary 4-stage methodology:</p>
+      <ul>
+        <li><strong>Diagnosis</strong> — Free Digital Audit. We analyze the prospect's current digital presence vs. their top competitor.</li>
+        <li><strong>Build</strong> — We construct the full stack: website, booking system, SEO foundation, brand identity.</li>
+        <li><strong>Operate</strong> — Ongoing management, content creation, paid ads, social presence.</li>
+        <li><strong>Optimize</strong> — Data-driven refinement. ROAS improvement, pipeline optimization, conversion rate tuning.</li>
+      </ul>
+      <p>Every piece of content leads the prospect deeper into this funnel.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><strong>02</strong> Platform Strategy</div>
+
+    <div class="platform-entry">
+      <div class="platform-head">
+        <div class="platform-name">LinkedIn</div>
+        <div class="platform-priority">PRIORITY 1 — Pipeline Driver</div>
+      </div>
+      <div class="platform-role">Primary channel for B2B relationship building with tourism/hospitality decision-makers in the Red Sea region and GCC. Long-form thought leadership, case studies, and direct outreach.</div>
+      <div class="platform-stats">
+        <div class="platform-stat"><strong>3×</strong> <span>per week</span></div>
+        <div class="platform-stat"><strong>EN</strong> <span>primary</span></div>
+        <div class="platform-stat"><strong>B2B</strong> <span>audience</span></div>
+      </div>
+      <div class="bio-block">Red Sea Digital Pro<br>
+Elite Performance Luxury Agency<br>
+Red Sea, Egypt · GCC<br><br>
+We build elite digital ecosystems for high-ticket tourism & hospitality.<br><br>
+The Red Sea Growth System™ — Diagnosis → Build → Operate → Optimize<br><br>
+📈 Pipeline Accountability | 🎨 Luxury Aesthetics | 🤖 AI + Human</div>
+      <button class="copy-btn" onclick="copyText(this, 'Red Sea Digital Pro\nElite Performance Luxury Agency\nRed Sea, Egypt · GCC\n\nWe build elite digital ecosystems for high-ticket tourism & hospitality.\n\nThe Red Sea Growth System™ — Diagnosis → Build → Operate → Optimize\n\n📈 Pipeline Accountability | 🎨 Luxury Aesthetics | 🤖 AI + Human')">Copy Bio</button>
+    </div>
+
+    <div class="platform-entry">
+      <div class="platform-head">
+        <div class="platform-name">Instagram</div>
+        <div class="platform-priority">PRIORITY 1 — Visual Portfolio</div>
+      </div>
+      <div class="platform-role">Living portfolio of our work — Before/After transformations, carousel case studies, Reels showing the build process. Where prospects see proof before they engage.</div>
+      <div class="platform-stats">
+        <div class="platform-stat"><strong>3×</strong> <span>per week</span></div>
+        <div class="platform-stat"><strong>EN + AR</strong> <span>bilingual</span></div>
+        <div class="platform-stat"><strong>Visual</strong> <span>focus</span></div>
+      </div>
+      <div class="bio-block">Red Sea Digital Pro 🌊<br>
+Elite Performance Luxury Agency<br>
+┉┉┉┉┉┉┉┉┉┉<br>
+Websites · Branding · SEO · Booking Systems<br>
+🇬🇧🇩🇪🇫🇷🇳🇱 We speak your guest's language<br>
+📍 Red Sea · GCC<br>
+┉┉┉┉┉┉┉┉┉┉<br>
+👇 Free Digital Diagnosis ↓</div>
+      <button class="copy-btn" onclick="copyText(this, 'Red Sea Digital Pro 🌊\nElite Performance Luxury Agency\n┉┉┉┉┉┉┉┉┉┉\nWebsites · Branding · SEO · Booking Systems\n🇬🇧🇩🇪🇫🇷🇳🇱 We speak your guest\'s language\n📍 Red Sea · GCC\n┉┉┉┉┉┉┉┉┉┉\n👇 Free Digital Diagnosis ↓')">Copy Bio</button>
+    </div>
+
+    <div class="platform-entry">
+      <div class="platform-head">
+        <div class="platform-name">Facebook</div>
+        <div class="platform-priority">PRIORITY 2 — Local Community</div>
+      </div>
+      <div class="platform-role">Targets local Egyptian businesses and expat communities in Hurghada, El Gouna, Sahl Hasheesh. Groups like "Hurghada Expats" and "Red Sea Business Network."</div>
+      <div class="platform-stats">
+        <div class="platform-stat"><strong>2×</strong> <span>per week</span></div>
+        <div class="platform-stat"><strong>AR + EN</strong> <span>bilingual</span></div>
+        <div class="platform-stat"><strong>B2B + B2C</strong> <span>mix</span></div>
+      </div>
+      <div class="bio-block">Red Sea Digital Pro 🌊<br>
+Elite Performance Luxury Agency<br>
+الغردقة · البحر الأحمر<br>
+┉┉┉┉┉┉┉┉┉┉<br>
+🌐 Websites · Branding · SEO · Booking<br>
+📈 Pipeline Accountability<br>
+┉┉┉┉┉┉┉┉┉┉<br>
+📞 WhatsApp: +201028803080</div>
+      <button class="copy-btn" onclick="copyText(this, 'Red Sea Digital Pro 🌊\nElite Performance Luxury Agency\nالغردقة · البحر الأحمر\n┉┉┉┉┉┉┉┉┉┉\n🌐 Websites · Branding · SEO · Booking\n📈 Pipeline Accountability\n┉┉┉┉┉┉┉┉┉┉\n📞 WhatsApp: +201028803080')">Copy Bio</button>
+    </div>
+
+    <div class="platform-entry">
+      <div class="platform-head">
+        <div class="platform-name">TikTok</div>
+        <div class="platform-priority">PRIORITY 2 — Organic Reach</div>
+      </div>
+      <div class="platform-role">Fastest organic growth platform. Website Before/After videos, "How I Built" screen recordings, educational short-form content in Arabic for local reach.</div>
+      <div class="platform-stats">
+        <div class="platform-stat"><strong>2×</strong> <span>per week</span></div>
+        <div class="platform-stat"><strong>AR</strong> <span>primary</span></div>
+        <div class="platform-stat"><strong>Short Video</strong> <span>format</span></div>
+      </div>
+      <div class="bio-block">@redseadigitalpro 🌊<br>
+Elite Performance Luxury Agency<br>
+📍 Red Sea, Egypt<br>
+—<br>
+Before/After | How I Built It | SEO Secrets<br>
+Booking Systems that convert 🎯</div>
+      <button class="copy-btn" onclick="copyText(this, '@redseadigitalpro 🌊\nElite Performance Luxury Agency\n📍 Red Sea, Egypt\n—\nBefore/After | How I Built It | SEO Secrets\nBooking Systems that convert 🎯')">Copy Bio</button>
+    </div>
+
+    <div class="platform-entry">
+      <div class="platform-head">
+        <div class="platform-name">WhatsApp Business</div>
+        <div class="platform-priority">PRIORITY 1 — Direct Conversion</div>
+      </div>
+      <div class="platform-role">Not just communication — a sales engine. Daily Status = content viewed by every contact. Catalog displays services. Quick Replies for instant responses.</div>
+      <div class="grid-3" style="margin-top:1.5rem;border-top:1px solid var(--border);padding-top:1.5rem">
+        <div class="text-block">
+          <div class="label">Catalog</div>
+          <p>List all 4 service tiers with descriptions. Prospects browse and inquire directly.</p>
+        </div>
+        <div class="text-block">
+          <div class="label">Daily Status</div>
+          <p>One post per day on Status — Before/After, tip, or daily offer. Seen by all contacts.</p>
+        </div>
+        <div class="text-block">
+          <div class="label">Quick Replies</div>
+          <p>/audit → Digital Diagnosis link · /price → pricing page · /portfolio → case studies</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════
+     PAGE 2: AUDIENCE
+════════════════════════════════ -->
+<div class="page" id="page-audience">
+  <div class="page-header">
+    <div class="eyebrow">Audience Intelligence</div>
+    <h1 class="page-title">Audience Matrix</h1>
+    <p class="page-sub">Three-tier targeting: Primary GCC buyers, Secondary local operators, Tertiary partners. Each tier has distinct pain points, channels, and messaging.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><strong>TIER 1</strong> Gulf-Based Investors & Operators</div>
+    <div class="text-block">
+      <div class="label">Profile</div>
+      <p>Saudi, UAE, Qatari, Kuwaiti nationals with tourism/hospitality investments in the Red Sea. High budget, expect luxury-caliber work, decision-makers within 1-2 calls.</p>
+      <div class="label">Pain Points</div>
+      <ul>
+        <li>"My luxury resort in El Gouna looks cheap online"</li>
+        <li>"I'm investing millions but my digital presence is 2015"</li>
+        <li>"I need pipeline visibility, not just a pretty website"</li>
+        <li>"My current agency delivers aesthetics but no bookings"</li>
+      </ul>
+      <div class="label">Primary Channel</div>
+      <p>LinkedIn — long-form thought leadership + direct outreach. WhatsApp for follow-up.</p>
+      <div class="label">Messaging Angle</div>
+      <p>Performance Luxury. We combine elite aesthetics with revenue accountability. The Red Sea Growth System™ guarantees pipeline results, not just visual output.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><strong>TIER 2</strong> Local Tourism Owners (Egypt)</div>
+    <div class="text-block">
+      <div class="label">Profile</div>
+      <p>Egyptian diving center owners, tour operators, hoteliers, and restaurant owners in Hurghada, El Gouna, Marsa Alam, Sharm El Sheikh. Have Google reviews but no real digital infrastructure. Price-sensitive, need education.</p>
+      <div class="label">Pain Points</div>
+      <ul>
+        <li>"I have great reviews but no online bookings"</li>
+        <li>"I don't know where to start"</li>
+        <li>"I tried a web developer before and got a bad site"</li>
+        <li>"German tourists can't find me"</li>
+      </ul>
+      <div class="label">Primary Channel</div>
+      <p>Facebook + WhatsApp. Instagram for visual proof. TikTok for organic reach.</p>
+      <div class="label">Messaging Angle</div>
+      <p>Education + Proof. "Your competitor just built a booking system. Here's how much revenue you're losing." Lead with the free Digital Diagnosis.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><strong>TIER 3</strong> International Partners & Referrers</div>
+    <div class="text-block">
+      <div class="label">Profile</div>
+      <p>Tourism boards, B2B platforms, travel agencies in Europe and GCC who need a reliable local digital partner for their clients. Value reliability and professionalism.</p>
+      <div class="label">Pain Points</div>
+      <ul>
+        <li>"I need a partner in Egypt I can trust with my clients"</li>
+        <li>"Communication and reliability are inconsistent"</li>
+        <li>"I want someone who understands both luxury and performance"</li>
+      </ul>
+      <div class="label">Primary Channel</div>
+      <p>LinkedIn (EN) — case studies, process documentation, bilingual capability showcase. Cold email for direct partnership proposals.</p>
+      <div class="label">Messaging Angle</div>
+      <p>Agency reliability. Process-driven methodology, clear communication, multilingual delivery. "We are your Red Sea digital infrastructure partner."</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><strong>Customer Journey</strong></div>
+    <div class="text-block">
+      <div class="label">Awareness → Consideration → Decision → Retention</div>
+      <p><strong>Awareness:</strong> LinkedIn thought leadership, Instagram portfolio, TikTok educational. Free Digital Diagnosis lead magnet.</p>
+      <p><strong>Consideration:</strong> Case studies (YallaTrip, etc.), methodology content, pricing page visits. Outreach follows from our side.</p>
+      <p><strong>Decision:</strong> Proposal + discovery call. We diagnose their current stack, present The Red Sea Growth System™ roadmap, commit to pipeline targets.</p>
+      <p><strong>Retention:</strong> Monthly business reviews, quarterly strategy sessions, performance dashboards. Referral incentives for existing clients.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════
+     PAGE 3: CONTENT
+════════════════════════════════ -->
+<div class="page" id="page-content">
+  <div class="page-header">
+    <div class="eyebrow">Content Architecture</div>
+    <h1 class="page-title">5 Content Pillars</h1>
+    <p class="page-sub">Every post belongs to one pillar. 3 posts per week = intelligent distribution across pillars. No random content.</p>
+  </div>
+
+  <div class="section">
+    <div class="pillar-entry">
+      <div class="pillar-top">
+        <div class="pillar-name">01 · Proof of Work</div>
+        <div class="pillar-pct">35%</div>
+      </div>
+      <div class="pillar-desc">Real client results — Before/After, case studies, screenshots, revenue impact data. This is what converts followers into clients.</div>
+      <ul class="pillar-examples">
+        <li>YallaTrip Before/After — from zero to luxury platform</li>
+        <li>Screenshot of booking system live in production</li>
+        <li>Revenue increase data for a client's online bookings</li>
+        <li>"I built a tourism website in 10 days" — full breakdown</li>
+        <li>Client testimonial with measurable results</li>
+      </ul>
+    </div>
+
+    <div class="pillar-entry">
+      <div class="pillar-top">
+        <div class="pillar-name">02 · Education</div>
+        <div class="pillar-pct">30%</div>
+      </div>
+      <div class="pillar-desc">Free value for tourism business owners. Builds trust and positions us as the authority. Every educational post ends with a soft CTA.</div>
+      <ul class="pillar-examples">
+        <li>"5 mistakes in diving center websites"</li>
+        <li>"Why German tourists can't find you on Google"</li>
+        <li>"3 things every tourism website needs to convert"</li>
+        <li>Weekly SEO tip specific to hospitality</li>
+        <li>"How to set up a booking system in 48 hours"</li>
+      </ul>
+    </div>
+
+    <div class="pillar-entry">
+      <div class="pillar-top">
+        <div class="pillar-name">03 · Local Authority</div>
+        <div class="pillar-pct">20%</div>
+      </div>
+      <div class="pillar-desc">Market intelligence about the Red Sea tourism sector. Data-driven insights that prove we understand the market at a deeper level than any competitor.</div>
+      <ul class="pillar-examples">
+        <li>"I audited 50 tourism businesses in Hurghada — here's the data"</li>
+        <li>"German tourism to Egypt 2026 — trends & opportunities"</li>
+        <li>"Red Sea real estate digital landscape"</li>
+        <li>"GCC investment in Red Sea tourism — who's winning online?"</li>
+      </ul>
+    </div>
+
+    <div class="pillar-entry">
+      <div class="pillar-top">
+        <div class="pillar-name">04 · Personal Brand</div>
+        <div class="pillar-pct">10%</div>
+      </div>
+      <div class="pillar-desc">The human side — founder story, mission, values, behind-the-scenes. Builds authentic connection with prospects.</div>
+      <ul class="pillar-examples">
+        <li>"Why I left [X] to build Red Sea Digital Pro"</li>
+        <li>"A day in the life — building in Hurghada"</li>
+        <li>"My perspective as a Creative Director from an award-winning agency"</li>
+        <li>Behind the screen — current project in progress</li>
+      </ul>
+    </div>
+
+    <div class="pillar-entry">
+      <div class="pillar-top">
+        <div class="pillar-name">05 · Offer</div>
+        <div class="pillar-pct">5%</div>
+      </div>
+      <div class="pillar-desc">Direct call-to-action posts. Once every 3 weeks maximum. Over-posting offers destroys authority.</div>
+      <ul class="pillar-examples">
+        <li>"Free Digital Diagnosis — 3 spots this week"</li>
+        <li>"GCC special: Elite Performance Audit for Red Sea investors"</li>
+        <li>"Limited: New client onboarding — 2 slots remaining"</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><strong>Weekly Distribution</strong></div>
+    <div class="grid-3">
+      <div class="text-block">
+        <div class="label">Sunday</div>
+        <p><strong>Proof of Work</strong><br>LinkedIn + Instagram<br>Case study or Before/After</p>
+      </div>
+      <div class="text-block">
+        <div class="label">Tuesday</div>
+        <p><strong>Education</strong><br>LinkedIn + Facebook<br>Value-driven educational post</p>
+      </div>
+      <div class="text-block">
+        <div class="label">Thursday</div>
+        <p><strong>Local Authority / Personal</strong><br>Instagram + TikTok<br>Market insight or personal story</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════
+     PAGE 4: CALENDAR
+════════════════════════════════ -->
+<div class="page" id="page-calendar">
+  <div class="page-header">
+    <div class="eyebrow">Content Calendar</div>
+    <h1 class="page-title">90-Day Editorial Calendar</h1>
+    <p class="page-sub">3 months of planned content. Every post ties to a pillar, platform, and pipeline goal. Adapt weekly based on performance data.</p>
+  </div>
+
+  <div class="month-block">
+    <div class="month-label"><em>Month 1</em> — Launch & Authority Establishment</div>
+
+    <div class="cal-row">
+      <div class="cal-day">Wk 1 · Sun</div>
+      <div class="cal-content"><span class="pf">Launch Announcement:</span> Red Sea Digital Pro is live — Elite Performance Luxury Agency for Red Sea tourism. <span class="plat">LinkedIn + IG</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">Wk 1 · Tue</div>
+      <div class="cal-content"><span class="pf">Educational:</span> "Why most tourism websites fail to convert — the 3-second rule" <span class="plat">LinkedIn + FB</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">Wk 1 · Thu</div>
+      <div class="cal-content"><span class="pf">Personal Brand:</span> "Why I built an Elite agency for the Red Sea" — founder story <span class="plat">IG + TikTok</span></div>
+    </div>
+
+    <div class="cal-row">
+      <div class="cal-day">Wk 2 · Sun</div>
+      <div class="cal-content"><span class="pf">Proof of Work:</span> YallaTrip case study — from zero to luxury platform in 10 days <span class="plat">LinkedIn + IG</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">Wk 2 · Tue</div>
+      <div class="cal-content"><span class="pf">Educational:</span> "German tourists spend 40% more — here's why they can't find you" <span class="plat">LinkedIn + FB</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">Wk 2 · Thu</div>
+      <div class="cal-content"><span class="pf">Local Authority:</span> "I audited 50 tourism websites in Hurghada — shocking data" <span class="plat">IG + TikTok</span></div>
+    </div>
+
+    <div class="cal-row">
+      <div class="cal-day">Wk 3 · Sun</div>
+      <div class="cal-content"><span class="pf">Proof of Work:</span> Before/After website transformation — screenshots + metrics <span class="plat">LinkedIn + IG</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">Wk 3 · Tue</div>
+      <div class="cal-content"><span class="pf">Educational:</span> "The Red Sea Growth System™: How we guarantee pipeline results" <span class="plat">LinkedIn + FB</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">Wk 3 · Thu</div>
+      <div class="cal-content"><span class="pf">Local Authority:</span> "GCC tourism investment in the Red Sea — who's winning online?" <span class="plat">IG</span></div>
+    </div>
+
+    <div class="cal-row">
+      <div class="cal-day">Wk 4 · Sun</div>
+      <div class="cal-content"><span class="pf">Proof of Work:</span> Client testimonial with measurable results (bookings, traffic increase) <span class="plat">LinkedIn + IG</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">Wk 4 · Tue</div>
+      <div class="cal-content"><span class="pf">Offer:</span> "Free Digital Diagnosis — 3 spots this week only" <span class="plat">All platforms</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">Wk 4 · Thu</div>
+      <div class="cal-content"><span class="pf">Personal Brand:</span> "Behind the screen — a week building a luxury brand from scratch" <span class="plat">TikTok</span></div>
+    </div>
+  </div>
+
+  <div class="month-block">
+    <div class="month-label"><em>Month 2</em> — Deep Authority & Community</div>
+
+    <div class="cal-row">
+      <div class="cal-day">Wk 5 · Sun</div>
+      <div class="cal-content"><span class="pf">Proof of Work:</span> Detailed breakdown: "How we built a booking system that increased online reservations by 340%" <span class="plat">LinkedIn</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">Wk 5 · Tue</div>
+      <div class="cal-content"><span class="pf">Educational:</span> "SEO for tourism — the keywords that actually book guests" <span class="plat">LinkedIn + FB</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">Wk 5 · Thu</div>
+      <div class="cal-content"><span class="pf">Local Authority:</span> Data post — "Red Sea tourism 2026 by the numbers" <span class="plat">IG</span></div>
+    </div>
+
+    <div class="cal-row">
+      <div class="cal-day">Wk 6 · Sun</div>
+      <div class="cal-content"><span class="pf">Proof of Work:</span> Multilingual website case study — client now ranking in German, English, Arabic <span class="plat">LinkedIn + IG</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">Wk 6 · Tue</div>
+      <div class="cal-content"><span class="pf">Educational:</span> "The difference between a website and a digital ecosystem" <span class="plat">LinkedIn</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">Wk 6 · Thu</div>
+      <div class="cal-content"><span class="pf">Personal Brand:</span> "Lessons from working with GCC luxury tourism brands" <span class="plat">IG + TikTok</span></div>
+    </div>
+
+    <div class="cal-row">
+      <div class="cal-day">Wk 7 · Sun</div>
+      <div class="cal-content"><span class="pf">Proof of Work:</span> Landing page Before/After — conversion rate optimization case study <span class="plat">LinkedIn + IG</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">Wk 7 · Tue</div>
+      <div class="cal-content"><span class="pf">Educational:</span> "AI in tourism marketing — what actually works right now" <span class="plat">LinkedIn + FB</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">Wk 7 · Thu</div>
+      <div class="cal-content"><span class="pf">Local Authority:</span> "GCC vs European tourists — different audiences, different strategies" <span class="plat">IG</span></div>
+    </div>
+
+    <div class="cal-row">
+      <div class="cal-day">Wk 8 · Sun</div>
+      <div class="cal-content"><span class="pf">Proof of Work:</span> Full-stack case study — website + booking + SEO + brand for a luxury resort <span class="plat">LinkedIn</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">Wk 8 · Tue</div>
+      <div class="cal-content"><span class="pf">Educational:</span> "Pipeline accountability — how we tie our work to your revenue" <span class="plat">LinkedIn</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">Wk 8 · Thu</div>
+      <div class="cal-content"><span class="pf">Offer:</span> "GCC Elite Performance Audit — 2 complimentary spots" <span class="plat">LinkedIn + IG</span></div>
+    </div>
+  </div>
+
+  <div class="month-block">
+    <div class="month-label"><em>Month 3</em> — Pipeline & Growth</div>
+
+    <div class="cal-row">
+      <div class="cal-day">Wk 9 · Sun</div>
+      <div class="cal-content"><span class="pf">Proof of Work:</span> 90-day results report — client performance dashboard reveal <span class="plat">LinkedIn</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">Wk 9 · Tue</div>
+      <div class="cal-content"><span class="pf">Educational:</span> "How we use data to optimize tourism websites — our Optimization stage" <span class="plat">LinkedIn + FB</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">Wk 9 · Thu</div>
+      <div class="cal-content"><span class="pf">Local Authority:</span> "The state of digital in Red Sea tourism — a market report" <span class="plat">IG</span></div>
+    </div>
+
+    <div class="cal-row">
+      <div class="cal-day">Wk 10 · Sun</div>
+      <div class="cal-content"><span class="pf">Proof of Work:</span> Before/After — mobile responsiveness transformation <span class="plat">LinkedIn + IG</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">Wk 10 · Tue</div>
+      <div class="cal-content"><span class="pf">Educational:</span> "Performance bonuses — why we put our fees where our results are" <span class="plat">LinkedIn</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">Wk 10 · Thu</div>
+      <div class="cal-content"><span class="pf">Personal Brand:</span> "Red Sea Pro vs traditional agencies — the difference in approach" <span class="plat">IG + TikTok</span></div>
+    </div>
+
+    <div class="cal-row">
+      <div class="cal-day">Wk 11 · Sun</div>
+      <div class="cal-content"><span class="pf">Proof of Work:</span> Client spotlight — interview format with measurable outcomes <span class="plat">LinkedIn</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">Wk 11 · Tue</div>
+      <div class="cal-content"><span class="pf">Educational:</span> "The 4 stages of digital maturity for tourism businesses" <span class="plat">LinkedIn + FB</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">Wk 11 · Thu</div>
+      <div class="cal-content"><span class="pf">Local Authority:</span> "Red Sea vs Maldives — digital presence comparison" <span class="plat">IG</span></div>
+    </div>
+
+    <div class="cal-row">
+      <div class="cal-day">Wk 12 · Sun</div>
+      <div class="cal-content"><span class="pf">Proof of Work:</span> Quarter 1 portfolio roundup — best projects, biggest wins <span class="plat">LinkedIn + IG</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">Wk 12 · Tue</div>
+      <div class="cal-content"><span class="pf">Educational:</span> "Planning your 2026/2027 digital strategy for Red Sea tourism" <span class="plat">LinkedIn</span></div>
+    </div>
+    <div class="cal-row">
+      <div class="cal-day">Wk 12 · Thu</div>
+      <div class="cal-content"><span class="pf">Offer:</span> "Q3 client onboarding — 2 retainer spots available" <span class="plat">All platforms</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════
+     PAGE 5: TEMPLATES
+════════════════════════════════ -->
+<div class="page" id="page-templates">
+  <div class="page-header">
+    <div class="eyebrow">Ready-to-Use</div>
+    <h1 class="page-title">Post Templates</h1>
+    <p class="page-sub">8 templates adapted for Elite Performance Luxury positioning. Edit details, post, track.</p>
+  </div>
+
+  <div class="post-tabs">
+    <button class="post-tab active" onclick="showTemplate('t1')">Before/After</button>
+    <button class="post-tab" onclick="showTemplate('t2')">Educational</button>
+    <button class="post-tab" onclick="showTemplate('t3')">Case Study</button>
+    <button class="post-tab" onclick="showTemplate('t4')">Local Authority</button>
+    <button class="post-tab" onclick="showTemplate('t5')">Offer</button>
+    <button class="post-tab" onclick="showTemplate('t6')">Instagram AR</button>
+    <button class="post-tab" onclick="showTemplate('t7')">TikTok Script</button>
+    <button class="post-tab" onclick="showTemplate('t8')">WhatsApp</button>
+  </div>
+
+  <div class="post-template active" id="pt-t1">
+    <div class="post-section">
+      <div class="post-section-label">Platform</div>
+      <div class="post-section-value">LinkedIn — highest performance format</div>
+    </div>
+    <div class="post-section">
+      <div class="post-section-label">Template — Before/After Transformation</div>
+      <div class="post-section-value">[X] days ago, this client had:<br>
+✗ No website / No brand / No booking system / No content<br><br>
+Today: [client name] is live — a full digital ecosystem built from zero.<br><br>
+What we delivered:<br>
+✅ Complete brand identity + website<br>
+✅ Booking system integrated<br>
+✅ SEO foundation set (multilingual)<br>
+✅ Content architecture + photography<br><br>
+The challenge wasn't just building a website. It was creating a digital presence worthy of a world-class tourism brand.<br><br>
+If your [business type] has great reviews but no digital pipeline — that's revenue you're leaving on the table every single day.<br><br>
+DM me "AUDIT" for a free Digital Diagnosis.
+      <span class="hashtags">#RedSeaDigitalPro #ElitePerformanceLuxury #TourismWebDesign #RedSeaTourism #LuxuryAgency</span></div>
+    </div>
+    <div class="post-section">
+      <div class="post-section-label">Visual Required</div>
+      <div class="post-section-value">Split screenshot — mobile + desktop of the new site. Or carousel showing the transformation journey.</div>
+    </div>
+    <button class="copy-btn" onclick="copyTemplate(this, '[X] days ago, this client had:\n✗ No website / No brand / No booking system / No content\n\nToday: [client name] is live — a full digital ecosystem built from zero.\n\nWhat we delivered:\n✅ Complete brand identity + website\n✅ Booking system integrated\n✅ SEO foundation set (multilingual)\n✅ Content architecture + photography\n\nThe challenge wasn\'t just building a website. It was creating a digital presence worthy of a world-class tourism brand.\n\nIf your [business type] has great reviews but no digital pipeline — that\'s revenue you\'re leaving on the table every single day.\n\nDM me \"AUDIT\" for a free Digital Diagnosis.\n\n#RedSeaDigitalPro #ElitePerformanceLuxury #TourismWebDesign #RedSeaTourism #LuxuryAgency')">Copy Full Post</button>
+  </div>
+
+  <div class="post-template" id="pt-t2">
+    <div class="post-section">
+      <div class="post-section-label">Platform</div>
+      <div class="post-section-value">LinkedIn + Facebook — Tuesday 10am Cairo</div>
+    </div>
+    <div class="post-section">
+      <div class="post-section-label">Template — Educational</div>
+      <div class="post-section-value">Most tourism websites make the same [X] mistakes. Here's how to fix all of them.<br><br>
+1. [Mistake 1 — e.g., "No mobile optimization"]<br>
+   → The fix: [specific actionable advice]<br><br>
+2. [Mistake 2 — e.g., "Arabic-only content"]<br>
+   → The fix: [specific actionable advice]<br><br>
+3. [Mistake 3 — e.g., "No booking system above the fold"]<br>
+   → The fix: [specific actionable advice]<br><br>
+Here's the thing: most tourism businesses in the Red Sea region have incredible on-the-ground experience but zero digital infrastructure to match it.<br><br>
+The gap between online and offline is where we operate.<br><br>
+Want me to audit your current site? Drop your URL in the comments.
+      <span class="hashtags">#TourismMarketing #DigitalStrategy #RedSeaTourism #WebDesign #HospitalityTech</span></div>
+    </div>
+    <button class="copy-btn" onclick="copyTemplate(this, 'Most tourism websites make the same [X] mistakes. Here\'s how to fix all of them.\n\n1. [Mistake 1]\n   → The fix: [specific actionable advice]\n\n2. [Mistake 2]\n   → The fix: [specific actionable advice]\n\n3. [Mistake 3]\n   → The fix: [specific actionable advice]\n\nHere\'s the thing: most tourism businesses in the Red Sea region have incredible on-the-ground experience but zero digital infrastructure to match it.\n\nThe gap between online and offline is where we operate.\n\nWant me to audit your current site? Drop your URL in the comments.\n\n#TourismMarketing #DigitalStrategy #RedSeaTourism #WebDesign #HospitalityTech')">Copy Full Post</button>
+  </div>
+
+  <div class="post-template" id="pt-t3">
+    <div class="post-section">
+      <div class="post-section-label">Platform</div>
+      <div class="post-section-value">LinkedIn + Instagram — Sunday 9am</div>
+    </div>
+    <div class="post-section">
+      <div class="post-section-label">Template — Case Study (Arabic Instagram Carousel)</div>
+      <div class="post-section-value">✨ قصة نجاح — [اسم العميل]<br><br>
+العميل جه بـ: لا موقع، لا هوية، لا محتوى، لا صور 📋<br><br>
+وبعد [X] يوم:<br>
+✅ موقع سياحي كامل شغّال<br>
+✅ هوية بصرية متكاملة<br>
+✅ [X]+ جولة/خدمة منشورة<br>
+✅ نظام حجز مدمج<br>
+✅ SEO مضبوط متعدد اللغات<br><br>
+نشاطك السياحي يستاهل وجود رقمي بمستوى عالمي 🎯<br><br>
+ابعتلي "تشخيص" في الـ DM وأعمل لك تحليل مجاني لحضورك الرقمي 🌊
+      <span class="hashtags">#تصميم_مواقع #الغردقة #البحر_الأحمر #وكالة_أداء_فاخر #سياحة_مصر</span></div>
+    </div>
+    <button class="copy-btn" onclick="copyTemplate(this, '✨ قصة نجاح — [اسم العميل]\n\nالعميل جه بـ: لا موقع، لا هوية، لا محتوى، لا صور 📋\n\nوبعد [X] يوم:\n✅ موقع سياحي كامل شغّال\n✅ هوية بصرية متكاملة\n✅ [X]+ جولة/خدمة منشورة\n✅ نظام حجز مدمج\n✅ SEO مضبوط متعدد اللغات\n\nنشاطك السياحي يستاهل وجود رقمي بمستوى عالمي 🎯\n\nابعتلي "تشخيص" في الـ DM وأعمل لك تحليل مجاني لحضورك الرقمي 🌊\n\n#تصميم_مواقع #الغردقة #البحر_الأحمر #وكالة_أداء_فاخر #سياحة_مصر')">Copy Full Post</button>
+  </div>
+
+  <div class="post-template" id="pt-t4">
+    <div class="post-section">
+      <div class="post-section-label">Platform</div>
+      <div class="post-section-value">LinkedIn — data-driven authority post</div>
+    </div>
+    <div class="post-section">
+      <div class="post-section-label">Template — Local Authority (Data)</div>
+      <div class="post-section-value">I just audited [N] tourism businesses in [location].<br><br>
+The results are telling:<br><br>
+📊 [X]% have NO professional website<br>
+📊 [X]% have NO online booking system<br>
+📊 [X]% are invisible in [language] search results<br>
+📊 [X]% rely entirely on WhatsApp for bookings<br><br>
+These businesses have thousands of 5-star reviews. They deliver exceptional experiences. But they're leaving [X]% of potential revenue on the table because tourists can't find or book them online.<br><br>
+The Red Sea tourism market is worth billions. The digital opportunity is almost entirely untapped.<br><br>
+This is why we built Red Sea Digital Pro — to bridge this gap with elite performance.
+      <span class="hashtags">#RedSeaTourism #MarketIntelligence #TourismMarketing #DigitalTransformation #DataDriven</span></div>
+    </div>
+    <button class="copy-btn" onclick="copyTemplate(this, 'I just audited [N] tourism businesses in [location].\n\nThe results are telling:\n\n📊 [X]% have NO professional website\n📊 [X]% have NO online booking system\n📊 [X]% are invisible in [language] search results\n📊 [X]% rely entirely on WhatsApp for bookings\n\nThese businesses have thousands of 5-star reviews.\n\nBut they\'re leaving [X]% of potential revenue on the table.\n\nThe Red Sea tourism market is worth billions.\n\nThis is why we built Red Sea Digital Pro.\n\n#RedSeaTourism #MarketIntelligence #TourismMarketing #DigitalTransformation')">Copy Full Post</button>
+  </div>
+
+  <div class="post-template" id="pt-t5">
+    <div class="post-section">
+      <div class="post-section-label">Platform</div>
+      <div class="post-section-value">All platforms — once every 3 weeks</div>
+    </div>
+    <div class="post-section">
+      <div class="post-section-label">Template — Offer (Scarcity-Driven)</div>
+      <div class="post-section-value">🎯 Free Digital Diagnosis — [N] Spots This Week<br><br>
+If your tourism business in the Red Sea region has:<br>
+✓ Great Google reviews<br>
+✓ No website or an outdated one<br>
+✓ Bookings primarily through WhatsApp<br><br>
+I'll analyze:<br>
+📍 Your Google visibility vs. top 3 competitors<br>
+📍 What guests find (or don't) when they search for you<br>
+📍 The #1 thing blocking online bookings<br>
+📍 A 7-day roadmap to fix it<br><br>
+Completely free. No pitch. Just honest intelligence.<br><br>
+Comment "AUDIT" or DM me — first [N] responses get priority.
+      <span class="hashtags">#FreeAudit #DigitalDiagnosis #RedSeaDigitalPro #TourismGrowth</span></div>
+    </div>
+    <button class="copy-btn" onclick="copyTemplate(this, '🎯 Free Digital Diagnosis — [N] Spots This Week\n\nIf your tourism business in the Red Sea region has:\n✓ Great Google reviews\n✓ No website or an outdated one\n✓ Bookings primarily through WhatsApp\n\nI\'ll analyze your Google visibility vs. top 3 competitors and deliver a 7-day roadmap.\n\nCompletely free. No pitch.\n\nComment "AUDIT" or DM me — first [N] responses get priority.\n\n#FreeAudit #DigitalDiagnosis #RedSeaDigitalPro #TourismGrowth')">Copy Full Post</button>
+  </div>
+
+  <div class="post-template" id="pt-t6">
+    <div class="post-section">
+      <div class="post-section-label">Platform</div>
+      <div class="post-section-value">Instagram — Carousel (5 slides) or Reel</div>
+    </div>
+    <div class="post-section">
+      <div class="post-section-label">Template — Instagram Arabic Before/After</div>
+      <div class="post-section-value">قبل ⚡ بعد<br><br>
+[نشاط تجاري] في [الموقع]<br><br>
+💬 قبل: واتساب فقط<br>
+🌊 بعد: موقع + حجز + SEO<br><br>
+بنينا لهم:<br>
+✅ موقع كامل [باللغات]<br>
+✅ نظام حجز أونلاين<br>
+✅ [X] صفحة خدمة/جولة<br><br>
+النتيجة؟ حجوزات من [السوق المستهدف] من أول أسبوع 🚀<br><br>
+نشاطك السياحي يستاهل وجود رقمي بمستوى عالمي 💪
+      <span class="hashtags">#قبل_وبعد #تصميم_مواقع #الغردقة #وكالة_أداء_فاخر #redseapro</span></div>
+    </div>
+    <button class="copy-btn" onclick="copyTemplate(this, 'قبل ⚡ بعد\n\n[نشاط تجاري] في [الموقع]\n\n💬 قبل: واتساب فقط\n🌊 بعد: موقع + حجز + SEO\n\nبنينا لهم:\n✅ موقع كامل [باللغات]\n✅ نظام حجز أونلاين\n✅ [X] صفحة خدمة/جولة\n\nالنتيجة؟ حجوزات من [السوق المستهدف] من أول أسبوع 🚀\n\nنشاطك السياحي يستاهل وجود رقمي بمستوى عالمي 💪\n\n#قبل_وبعد #تصميم_مواقع #الغردقة #وكالة_أداء_فاخر #redseapro')">Copy Full Post</button>
+  </div>
+
+  <div class="post-template" id="pt-t7">
+    <div class="post-section">
+      <div class="post-section-label">Platform</div>
+      <div class="post-section-value">TikTok / Instagram Reels — 60 seconds</div>
+    </div>
+    <div class="post-section">
+      <div class="post-section-label">Script — "How I Built It"</div>
+      <div class="post-section-value">[Hook 0-3s]: "بَنيت منصة سياحية كاملة من الصفر في [X] يوم — شوف إزاي 👇"<br><br>
+[Problem 3-10s]: "العميل جه بدون أي حاجة — لا موقع، لا هوية، لا محتوى، ولا صور. كان عنده تقييمات ممتازة على جوجل لكن مفيش أي وجود رقمي."<br><br>
+[Process 10-40s]: "اليوم 1-2: الهوية البصرية واللوجو / اليوم 3-4: كتبت كل محتوى الجولات / اليوم 5-7: بنيت الموقع بالكامل / اليوم 8-9: SEO + نظام الحجز / اليوم 10: Launch!"<br><br>
+[Result 40-55s]: "النتيجة؟ الموقع شغال — حجوزات من أوروبا من أول أسبوع."<br><br>
+[CTA 55-60s]: "لو نشاطك السياحي محتاج وجود رقمي بمستوى عالمي — الرابط في البايو 🔗"</div>
+    </div>
+    <button class="copy-btn" onclick="copyTemplate(this, 'TikTok/Reel Script — 60 seconds\n\n[Hook 0-3s]: بَنيت منصة سياحية كاملة من الصفر في [X] يوم — شوف إزاي\n\n[Problem 3-10s]: العميل جه بدون أي حاجة — لا موقع، لا هوية، لا محتوى\n\n[Process 10-40s]: اليوم 1-2: الهوية / اليوم 3-4: المحتوى / اليوم 5-7: الموقع / اليوم 8-9: SEO+حجز / اليوم 10: Launch\n\n[Result 40-55s]: الموقع شغال — حجوزات من أوروبا من أول أسبوع\n\n[CTA 55-60s]: لو نشاطك محتاج وجود رقمي بمستوى عالمي — الرابط في البايو\n\n#تصميم_مواقع #الغردقة #وكالة_أداء_فاخر #fyp')">Copy Script</button>
+  </div>
+
+  <div class="post-template" id="pt-t8">
+    <div class="post-section">
+      <div class="post-section-label">Platform</div>
+      <div class="post-section-value">WhatsApp Business Status — daily or every other day</div>
+    </div>
+    <div class="post-section">
+      <div class="post-section-label">5 Status Templates</div>
+      <div class="post-section-value">1️⃣ "🌊 Red Sea Digital Pro — Elite Performance Luxury Agency. استشارة رقمية مجانية هذا الأسبوع 👇 واتساب"<br><br>
+2️⃣ "✅ انتهينا من منصة رقمية كاملة لشركة سياحة في الغردقة — 20+ جولة، نظام حجز، multilingual. نشاطك يستاهل نفس المستوى."<br><br>
+3️⃣ "💡 نصيحة اليوم: السياح يبحثون أونلاين قبل الحجز بأسابيع. لو مش موجود — بتخسر حجوزات يومياً."<br><br>
+4️⃣ "🎯 3 أماكن فاضية هذا الأسبوع للتشخيص الرقمي المجاني. أول 3 يتواصلوا."<br><br>
+5️⃣ "🔥 Before/After: من لا شيء إلى منصة رقمية متكاملة. هل موقعك يحتاج نفس التحويل؟"</div>
+    </div>
+    <button class="copy-btn" onclick="copyTemplate(this, '1️⃣ 🌊 Red Sea Digital Pro — Elite Performance Luxury Agency. استشارة رقمية مجانية\n\n2️⃣ ✅ انتهينا من منصة رقمية كاملة لشركة سياحة — 20+ جولة، نظام حجز\n\n3️⃣ 💡 السياح يبحثون أونلاين قبل الحجز بأسابيع. لو مش موجود — بتخسر حجوزات\n\n4️⃣ 🎯 3 أماكن فاضية للتشخيص الرقمي المجاني هذا الأسبوع\n\n5️⃣ 🔥 Before/After: من لا شيء إلى منصة رقمية متكاملة')">Copy All Status Templates</button>
+  </div>
+</div>
+
+<!-- ════════════════════════════════
+     PAGE 6: HOOKS
+════════════════════════════════ -->
+<div class="page" id="page-hooks">
+  <div class="page-header">
+    <div class="eyebrow">Opening Lines</div>
+    <h1 class="page-title">50+ Hooks</h1>
+    <p class="page-sub">First line is 80% of a post's success. Categorized by psychological trigger, platform, and funnel stage. Tap to copy.</p>
+  </div>
+
+  <div class="section">
+    <div class="hook-group">
+      <div class="hook-group-title">🔥 Shock & Data — LinkedIn (B2B Pipeline)</div>
+      <div class="hook-item" onclick="copyHook(this)"><span>Your luxury resort has 1,000+ Google reviews but zero direct bookings. Here's the math on what that costs you annually.</span><span class="hook-meta">EN · LinkedIn</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>I audited 50 Red Sea tourism businesses. Only 2 had a professional digital ecosystem. This is a billion-dollar gap.</span><span class="hook-meta">EN · LinkedIn</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>GCC investors are pouring millions into Red Sea tourism. Most of their digital presence looks like it was built in 2013.</span><span class="hook-meta">EN · LinkedIn</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>German tourists spend 40% more per trip. 90% of Red Sea businesses can't be found in German search results. That's the gap we close.</span><span class="hook-meta">EN · LinkedIn</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>Your competitor just launched a booking system. Every day you delay is revenue you're gifting them.</span><span class="hook-meta">EN · LinkedIn</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>The best diving center in Hurghada has 4,000+ reviews and no pipeline. Let that sink in.</span><span class="hook-meta">EN · LinkedIn</span></div>
+    </div>
+
+    <div class="hook-group">
+      <div class="hook-group-title">💡 Educational — LinkedIn (Trust Building)</div>
+      <div class="hook-item" onclick="copyHook(this)"><span>Most luxury tourism websites make the same 5 mistakes. Here's how to fix all of them this week.</span><span class="hook-meta">EN · LinkedIn</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>If a guest can't book you in 3 clicks from Google, you're losing to whoever can.</span><span class="hook-meta">EN · LinkedIn</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>"Pretty website, no bookings" — the #1 complaint we hear. Here's what's missing.</span><span class="hook-meta">EN · LinkedIn</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>I've analyzed 100+ tourism websites. The ones that actually generate revenue all have these 3 things in common.</span><span class="hook-meta">EN · LinkedIn</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>Pipeline Accountability isn't a buzzword — it's how we structure every engagement. Here's what it means in practice.</span><span class="hook-meta">EN · LinkedIn</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>Algorithms change. Great digital ecosystems don't. Here's the difference.</span><span class="hook-meta">EN · LinkedIn</span></div>
+    </div>
+
+    <div class="hook-group">
+      <div class="hook-group-title">🌊 Story & Authority — LinkedIn (Relationship)</div>
+      <div class="hook-item" onclick="copyHook(this)"><span>I grew up in Hurghada's tourism industry. I've watched brilliant luxury businesses fail online while mediocre ones win. The difference is always digital infrastructure.</span><span class="hook-meta">EN · LinkedIn</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>Last week I walked into a 5-star property in El Gouna with 4,000+ reviews and no booking engine. The GM asked "do we really need one?" I showed him the analytics. He called the next day.</span><span class="hook-meta">EN · LinkedIn</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>We don't build websites. We build digital pipelines that connect your offline excellence to online revenue.</span><span class="hook-meta">EN · LinkedIn</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>Here's what my award-agency background taught me about luxury: aesthetics get attention, but accountability closes deals.</span><span class="hook-meta">EN · LinkedIn</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>The Red Sea Growth System™ wasn't invented in a boardroom. It came from building 30+ digital ecosystems for tourism businesses.</span><span class="hook-meta">EN · LinkedIn</span></div>
+    </div>
+
+    <div class="hook-group">
+      <div class="hook-group-title">🎯 Arabic Hooks — Instagram & TikTok (Local Reach)</div>
+      <div class="hook-item" onclick="copyHook(this)"><span class="hook-lang">منتجع في الجونة عنده آلاف التقييمات وما عندهوش نظام حجز. ده مش معقول 🤯</span><span class="hook-meta">AR · TikTok/IG</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span class="hook-lang">بنيت منصة رقمية كاملة لشركة سياحة في 10 أيام — شوف إزاي خطوة بخطوة 👇</span><span class="hook-meta">AR · TikTok</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span class="hook-lang">73% من السياح بيدوروا على الإنترنت قبل ما يسافروا. لو مش موجود — بتخسر حجوزات كل يوم 📊</span><span class="hook-meta">AR · IG</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span class="hook-lang">قبل وبعد: موقع شركة سياحة في الغردقة — الفرق واضح 😮</span><span class="hook-meta">AR · IG Reel</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span class="hook-lang">مستثمر خليجي عنده مشروع في الغردقة وموقعه الإلكتروني مش بمستوى الاستثمار. إحنا هنغير ده.</span><span class="hook-meta">AR · LinkedIn</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span class="hook-lang">3 أسباب تخلي مواقع السياحة في البحر الأحمر ضعيفة — وإزاي تتحنبها 🎯</span><span class="hook-meta">AR · TikTok/IG</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span class="hook-lang">إحنا مش مجرد وكالة تصميم. إحنا شركة أداء فاخر — الفرق بيننا وبين غيرنا pipeline accountability.</span><span class="hook-meta">AR · LinkedIn</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span class="hook-lang">السياح الألمان بيدوروا باللغة الألمانية. موقعك بالعربي بس — فانت مش موجود بالنسبة لهم.</span><span class="hook-meta">AR · FB</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span class="hook-lang">مش كل موقع يتحول لحجوزات. الفرق في النظام — إزاي تبني digital ecosystem مش مجرد website.</span><span class="hook-meta">AR · IG</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span class="hook-lang">صاحب مطعم في الغردقة — 4300 تقييم وما عندهوش موقع. قلتله بتخسر كام حجز يومياً؟</span><span class="hook-meta">AR · TikTok</span></div>
+    </div>
+
+    <div class="hook-group">
+      <div class="hook-group-title">💰 GCC-Specific — LinkedIn (High-Value)</div>
+      <div class="hook-item" onclick="copyHook(this)"><span>You're investing millions in Red Sea tourism. Your digital presence should reflect that investment.</span><span class="hook-meta">EN · GCC</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>Most Red Sea agencies offer templates. We offer pipeline accountability tied to your revenue goals.</span><span class="hook-meta">EN · GCC</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>Your El Gouna property deserves a digital ecosystem that matches its physical excellence. Here's what that looks like.</span><span class="hook-meta">EN · GCC</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>Performance Luxury — the intersection of world-class design and measurable revenue impact. That's our category.</span><span class="hook-meta">EN · GCC</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>We don't do retainers for the sake of retainers. We tie our fees to pipeline performance. If you don't grow, we don't win.</span><span class="hook-meta">EN · GCC</span></div>
+    </div>
+
+    <div class="hook-group">
+      <div class="hook-group-title">⚡ Short & Punchy — Instagram Captions</div>
+      <div class="hook-item" onclick="copyHook(this)"><span>Before: No pipeline. After: Full digital ecosystem. Same business, different trajectory.</span><span class="hook-meta">EN · IG</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>Your guests search in English, German, and Arabic. Is your website available in all three?</span><span class="hook-meta">EN · IG</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>Elite Performance Luxury isn't a tagline. It's how we structure every project.</span><span class="hook-meta">EN · IG</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>A website is a page. A digital ecosystem is a revenue engine. We build the latter.</span><span class="hook-meta">EN · IG</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>Your Google reviews say you're great. Your website should prove it.</span><span class="hook-meta">EN · IG</span></div>
+    </div>
+
+    <div class="hook-group">
+      <div class="hook-group-title">🔄 Engagement Hooks — Facebook Groups</div>
+      <div class="hook-item" onclick="copyHook(this)"><span class="hook-lang">سؤال لأصحاب الأعمال في الغردقة: كم حجزة بتاخدوا من الإنترنت مقارنة بالتوصية؟ 👇</span><span class="hook-meta">AR · FB</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span class="hook-lang">مين جرب قبل كده يطور موقع نشاطه التجاري؟ إيه اللي اشتغل وإيه اللي لأ؟</span><span class="hook-meta">AR · FB</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span>Question for expat business owners in Hurghada: What's the #1 digital challenge you face reaching European tourists?</span><span class="hook-meta">EN · FB</span></div>
+      <div class="hook-item" onclick="copyHook(this)"><span class="hook-lang">لو تقدر تغير حاجة واحدة في موقع نشاطك التجاري — إيه هي؟</span><span class="hook-meta">AR · FB</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════
+     PAGE 7: HASHTAGS
+════════════════════════════════ -->
+<div class="page" id="page-hashtags">
+  <div class="page-header">
+    <div class="eyebrow">Search Strategy</div>
+    <h1 class="page-title">Hashtag Groups</h1>
+    <p class="page-sub">Ready-to-use sets per platform. Tap any tag to copy. Use 5-8 on LinkedIn, 20-30 on Instagram.</p>
+  </div>
+
+  <div class="section">
+    <div class="grid-2">
+      <div>
+        <div class="tag-group">
+          <div class="tag-group-title">LinkedIn — Core (5-8 per post)</div>
+          <div class="tag-wrap">
+            <span class="tag" onclick="copyTag(this)">#RedSeaDigitalPro</span>
+            <span class="tag" onclick="copyTag(this)">#ElitePerformanceLuxury</span>
+            <span class="tag" onclick="copyTag(this)">#TourismWebDesign</span>
+            <span class="tag" onclick="copyTag(this)">#RedSeaTourism</span>
+            <span class="tag" onclick="copyTag(this)">#LuxuryAgency</span>
+            <span class="tag" onclick="copyTag(this)">#TourismMarketing</span>
+            <span class="tag" onclick="copyTag(this)">#DigitalEcosystem</span>
+            <span class="tag" onclick="copyTag(this)">#HospitalityTech</span>
+            <span class="tag" onclick="copyTag(this)">#PipelineAccountability</span>
+            <span class="tag" onclick="copyTag(this)">#ElGouna</span>
+            <span class="tag" onclick="copyTag(this)">#HurghadaBusiness</span>
+            <span class="tag" onclick="copyTag(this)">#GCCInvestment</span>
+          </div>
+          <button class="copy-btn" onclick="copyText(this, '#RedSeaDigitalPro #ElitePerformanceLuxury #TourismWebDesign #RedSeaTourism #LuxuryAgency #TourismMarketing #DigitalEcosystem #HospitalityTech')">Copy Set</button>
+        </div>
+
+        <div class="tag-group">
+          <div class="tag-group-title">Instagram EN — Mix (15-25 per post)</div>
+          <div class="tag-wrap">
+            <span class="tag" onclick="copyTag(this)">#RedSeaDigitalPro</span>
+            <span class="tag" onclick="copyTag(this)">#TourismWebDesign</span>
+            <span class="tag" onclick="copyTag(this)">#WebDesignAgency</span>
+            <span class="tag" onclick="copyTag(this)">#HurghadaEgypt</span>
+            <span class="tag" onclick="copyTag(this)">#RedSea</span>
+            <span class="tag" onclick="copyTag(this)">#ElGouna</span>
+            <span class="tag" onclick="copyTag(this)">#DivingHurghada</span>
+            <span class="tag" onclick="copyTag(this)">#EgyptTravel</span>
+            <span class="tag" onclick="copyTag(this)">#LuxuryTourism</span>
+            <span class="tag" onclick="copyTag(this)">#BeforeAfterWebsite</span>
+            <span class="tag" onclick="copyTag(this)">#BookingSystem</span>
+            <span class="tag" onclick="copyTag(this)">#DigitalAgency</span>
+            <span class="tag" onclick="copyTag(this)">#SEOTourism</span>
+            <span class="tag" onclick="copyTag(this)">#WebDeveloper</span>
+            <span class="tag" onclick="copyTag(this)">#LuxuryTravelTech</span>
+          </div>
+          <button class="copy-btn" onclick="copyText(this, '#RedSeaDigitalPro #TourismWebDesign #WebDesignAgency #HurghadaEgypt #RedSea #ElGouna #DivingHurghada #EgyptTravel #LuxuryTourism #BeforeAfterWebsite #BookingSystem #DigitalAgency #SEOTourism #WebDeveloper #LuxuryTravelTech')">Copy Set</button>
+        </div>
+      </div>
+
+      <div>
+        <div class="tag-group">
+          <div class="tag-group-title">Instagram AR — Arabic (15-20 per post)</div>
+          <div class="tag-wrap">
+            <span class="tag ar" onclick="copyTag(this)">#وكالة_أداء_فاخر</span>
+            <span class="tag ar" onclick="copyTag(this)">#تصميم_مواقع</span>
+            <span class="tag ar" onclick="copyTag(this)">#الغردقة</span>
+            <span class="tag ar" onclick="copyTag(this)">#البحر_الأحمر</span>
+            <span class="tag ar" onclick="copyTag(this)">#سياحة_مصر</span>
+            <span class="tag ar" onclick="copyTag(this)">#تسويق_رقمي</span>
+            <span class="tag ar" onclick="copyTag(this)">#مواقع_سياحية</span>
+            <span class="tag ar" onclick="copyTag(this)">#هوية_بصرية</span>
+            <span class="tag ar" onclick="copyTag(this)">#ريد_سي_ديجيتال_برو</span>
+            <span class="tag ar" onclick="copyTag(this)">#سياحة_فاخرة</span>
+            <span class="tag ar" onclick="copyTag(this)">#سيو</span>
+            <span class="tag ar" onclick="copyTag(this)">#أعمال_الغردقة</span>
+            <span class="tag ar" onclick="copyTag(this)">#قبل_وبعد</span>
+            <span class="tag ar" onclick="copyTag(this)">#استثمار_سياحي</span>
+          </div>
+          <button class="copy-btn" onclick="copyText(this, '#وكالة_أداء_فاخر #تصميم_مواقع #الغردقة #البحر_الأحمر #سياحة_مصر #تسويق_رقمي #مواقع_سياحية #هوية_بصرية #ريد_سي_ديجيتال_برو #سياحة_فاخرة #قبل_وبعد #استثمار_سياحي')">Copy Set</button>
+        </div>
+
+        <div class="tag-group">
+          <div class="tag-group-title">TikTok — Viral Discovery</div>
+          <div class="tag-wrap">
+            <span class="tag ar" onclick="copyTag(this)">#وكالة_أداء_فاخر</span>
+            <span class="tag ar" onclick="copyTag(this)">#تصميم_مواقع</span>
+            <span class="tag ar" onclick="copyTag(this)">#الغردقة</span>
+            <span class="tag ar" onclick="copyTag(this)">#ديجيتال_ماركتينج</span>
+            <span class="tag" onclick="copyTag(this)">#fyp</span>
+            <span class="tag" onclick="copyTag(this)">#foryou</span>
+            <span class="tag" onclick="copyTag(this)">#WebDesign</span>
+            <span class="tag" onclick="copyTag(this)">#BeforeAfter</span>
+            <span class="tag ar" onclick="copyTag(this)">#قبل_وبعد</span>
+            <span class="tag" onclick="copyTag(this)">#Egypt</span>
+            <span class="tag ar" onclick="copyTag(this)">#مصر</span>
+            <span class="tag" onclick="copyTag(this)">#TourismBusiness</span>
+            <span class="tag" onclick="copyTag(this)">#RedSea</span>
+          </div>
+          <button class="copy-btn" onclick="copyText(this, '#وكالة_أداء_فاخر #تصميم_مواقع #الغردقة #ديجيتال_ماركتينج #fyp #foryou #WebDesign #BeforeAfter #قبل_وبعد #Egypt #مصر #TourismBusiness #RedSea')">Copy Set</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════
+     PAGE 8: ANALYTICS
+════════════════════════════════ -->
+<div class="page" id="page-analytics">
+  <div class="page-header">
+    <div class="eyebrow">Measurement</div>
+    <h1 class="page-title">Analytics & KPI Framework</h1>
+    <p class="page-sub">What gets measured gets optimized. Track these metrics weekly, review monthly, pivot quarterly.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><strong>KPI Tree</strong></div>
+    <div class="metric-row m-header">
+      <div class="m-label">Metric</div>
+      <div>Target</div>
+      <div>Current</div>
+      <div>Status</div>
+    </div>
+    <div class="metric-row">
+      <div class="m-label">LinkedIn — Profile Views / Week</div>
+      <div class="m-target">500+</div>
+      <div class="m-current">—</div>
+      <div class="m-current">Pending</div>
+    </div>
+    <div class="metric-row">
+      <div class="m-label">LinkedIn — Inbound Messages / Week</div>
+      <div class="m-target">5+</div>
+      <div class="m-current">—</div>
+      <div class="m-current">Pending</div>
+    </div>
+    <div class="metric-row">
+      <div class="m-label">LinkedIn — Post Engagement Rate</div>
+      <div class="m-target">3%+</div>
+      <div class="m-current">—</div>
+      <div class="m-current">Pending</div>
+    </div>
+    <div class="metric-row">
+      <div class="m-label">Instagram — Follower Growth / Week</div>
+      <div class="m-target">50+</div>
+      <div class="m-current">—</div>
+      <div class="m-current">Pending</div>
+    </div>
+    <div class="metric-row">
+      <div class="m-label">Instagram — Reel Views / Post</div>
+      <div class="m-target">2,000+</div>
+      <div class="m-current">—</div>
+      <div class="m-current">Pending</div>
+    </div>
+    <div class="metric-row">
+      <div class="m-label">Instagram — Website Clicks / Week</div>
+      <div class="m-target">100+</div>
+      <div class="m-current">—</div>
+      <div class="m-current">Pending</div>
+    </div>
+    <div class="metric-row">
+      <div class="m-label">TikTok — Video Views / Post</div>
+      <div class="m-target">5,000+</div>
+      <div class="m-current">—</div>
+      <div class="m-current">Pending</div>
+    </div>
+    <div class="metric-row">
+      <div class="m-label">TikTok — Profile Visits / Week</div>
+      <div class="m-target">200+</div>
+      <div class="m-current">—</div>
+      <div class="m-current">Pending</div>
+    </div>
+    <div class="metric-row">
+      <div class="m-label">WhatsApp — New Contacts / Week</div>
+      <div class="m-target">20+</div>
+      <div class="m-current">—</div>
+      <div class="m-current">Pending</div>
+    </div>
+    <div class="metric-row">
+      <div class="m-label">Overall — Digital Diagnosis Requests / Week</div>
+      <div class="m-target">5+</div>
+      <div class="m-current">—</div>
+      <div class="m-current">Pending</div>
+    </div>
+    <div class="metric-row">
+      <div class="m-label">Overall — Retainer Inquiries / Month</div>
+      <div class="m-target">3+</div>
+      <div class="m-current">—</div>
+      <div class="m-current">Pending</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><strong>Weekly Review Protocol</strong></div>
+    <div class="text-block">
+      <p>Every Sunday, review the past week's data:</p>
+      <ol style="list-style:decimal;padding-left:1.2rem">
+        <li style="margin-bottom:0.5rem"><strong>Top 3 posts by engagement</strong> — identify what worked and why</li>
+        <li style="margin-bottom:0.5rem"><strong>Bottom 3 posts by engagement</strong> — identify what didn't and adjust</li>
+        <li style="margin-bottom:0.5rem"><strong>Pipeline metrics</strong> — how many DMs, comments, diagnosis requests came in</li>
+        <li style="margin-bottom:0.5rem"><strong>Follower growth</strong> — which platform grew most, which content drove it</li>
+        <li style="margin-bottom:0.5rem"><strong>Adjust next week's calendar</strong> based on data</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><strong>A/B Testing Framework</strong></div>
+    <div class="text-block">
+      <p>Test one variable at a time per platform per week:</p>
+      <ul>
+        <li><strong>Hooks:</strong> Test question vs. fact vs. story opening — same body content</li>
+        <li><strong>Visuals:</strong> Test screenshot vs. mockup vs. carousel — same caption</li>
+        <li><strong>CTAs:</strong> Test "DM me AUDIT" vs. "Comment below" vs. "Link in bio"</li>
+        <li><strong>Timing:</strong> Test Sunday 9am vs. Sunday 7pm for same post type</li>
+      </ul>
+      <p>Document every test in a simple spreadsheet. Winner becomes the new baseline. Loser gets discarded.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><strong>Monthly Report Structure</strong></div>
+    <div class="text-block">
+      <p>End of each month, compile a one-page report covering:</p>
+      <ul>
+        <li><strong>Growth:</strong> Followers gained per platform, total reach, top-performing content</li>
+        <li><strong>Pipeline:</strong> Inquiries generated, diagnosis requests, discovery calls booked</li>
+        <li><strong>Conversion:</strong> Diagnosis → Proposal rate, Proposal → Client rate</li>
+        <li><strong>Revenue attribution:</strong> Which channels drove which opportunities</li>
+        <li><strong>Next month:</strong> Content themes, focus platforms, experiments planned</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════
+     PAGE 9: SETUP
+════════════════════════════════ -->
+<div class="page" id="page-setup">
+  <div class="page-header">
+    <div class="eyebrow">Launch Sequence</div>
+    <h1 class="page-title">Setup Checklist</h1>
+    <p class="page-sub">Complete these steps in order. Progress is tracked locally. Tap any item to toggle completion.</p>
+  </div>
+
+  <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+  <div class="progress-text" id="progressText">0 / 28 tasks complete</div>
+
+  <div class="grid-2">
+    <div>
+      <div class="checklist">
+        <div class="checklist-title">LinkedIn — Priority #1</div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">Create profile: Red Sea Digital Pro (or use personal name with agency title)</div><div class="check-note">Professional photo, banner with logo</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">Headline: "Elite Performance Luxury Agency | Red Sea, Egypt · GCC"</div><div class="check-note">Keywords for search visibility</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">Copy bio from Strategy page into About section</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">Add Featured Section: link to landing page</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">Create Company Page: "Red Sea Digital Pro"</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">Publish launch post (see Calendar Month 1, Week 1)</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">Connect with 50+ Red Sea tourism decision-makers daily</div><div class="check-note">Target: GCC investors, hotel GMs, diving center owners</div></div></div>
+      </div>
+
+      <div class="checklist">
+        <div class="checklist-title">Instagram</div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">Handle: @redseadigitalpro</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">Switch to Business Account</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">Profile photo: Logo on white/indigo background</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">Copy bio from Strategy page</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">Add link: landing page URL</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">Highlights: Portfolio / Case Studies / Tips / About</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">Post launch carousel (5 slides: logo, services, methodology, case study, CTA)</div></div></div>
+      </div>
+
+      <div class="checklist">
+        <div class="checklist-title">TikTok</div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">Handle: @redseadigitalpro</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">Switch to Business Account</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">Copy bio from Strategy page</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">Publish first video: "Who I am & Red Sea Digital Pro" — 30 sec</div></div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="checklist">
+        <div class="checklist-title">Facebook</div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">Create Business Page: "Red Sea Digital Pro"</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">Profile + cover image consistent with brand</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">Copy bio from Strategy page</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">Join relevant groups: Hurghada Expats, Red Sea Business Network, etc.</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">Post intro in each group (value-first, no pitch)</div></div></div>
+      </div>
+
+      <div class="checklist">
+        <div class="checklist-title">WhatsApp Business</div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">Download WhatsApp Business app</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">Set up Business Profile with logo, description, hours</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">Create Catalog: 4 service tiers with descriptions</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">Set up Quick Replies: /audit, /price, /portfolio, /hello</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">Post first Status: launch announcement + CTA</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">Send broadcast to existing contacts: "Red Sea Digital Pro is live"</div></div></div>
+      </div>
+
+      <div class="checklist">
+        <div class="checklist-title">Landing Page & Tools</div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">Deploy landing page (red-sea-digital-pro.html) to hosting</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">Set up domain: redseadigital.pro (or similar)</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">Connect Google Analytics / Tag Manager</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">Create Link-in-Bio page for Instagram (linktr.ee or custom)</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">Set up scheduler (Buffer or Meta Business Suite)</div><div class="check-note">Schedule first 2 weeks of content</div></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div><div class="check-text">Create lead capture: Digital Diagnosis form (Google Forms or Typeform)</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  document.querySelector('.tab-btn[onclick*="' + id + '"]').classList.add('active');
+  document.querySelector('.nav-scroll').scrollLeft = 0;
+}
+
+function showTemplate(id) {
+  document.querySelectorAll('.post-template').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.post-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById('pt-' + id).classList.add('active');
+  document.querySelector('.post-tab[onclick*="' + id + '"]').classList.add('active');
+}
+
+function copyText(btn, text) {
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = 'Copied!';
+    setTimeout(() => { btn.textContent = btn.classList.contains('copy-btn') ? 'Copy Full Post' : 'Copy'; }, 1500);
+  });
+}
+
+function copyHook(el) {
+  let text = el.querySelector('span:first-child').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    let orig = el.innerHTML;
+    el.innerHTML = '<span style="color:var(--indigo)">✓ Copied!</span><span class="hook-meta">' + el.querySelector('.hook-meta').textContent + '</span>';
+    setTimeout(() => { el.innerHTML = orig; }, 1200);
+  });
+}
+
+function copyTag(el) {
+  navigator.clipboard.writeText(el.textContent.trim());
+  el.style.borderColor = 'var(--indigo)';
+  el.style.color = 'var(--indigo)';
+  setTimeout(() => { el.style.borderColor = ''; el.style.color = ''; }, 800);
+}
+
+function copyTemplate(btn, text) {
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = '✓ Copied!';
+    setTimeout(() => { btn.textContent = 'Copy Full Post'; }, 1500);
+  });
+}
+
+function toggleCheck(el) {
+  el.classList.toggle('done');
+  let box = el.querySelector('.check-box');
+  if (el.classList.contains('done')) {
+    box.innerHTML = '✓';
+  } else {
+    box.innerHTML = '';
+  }
+  updateProgress();
+}
+
+function updateProgress() {
+  let total = document.querySelectorAll('.check-item').length;
+  let done = document.querySelectorAll('.check-item.done').length;
+  let pct = total > 0 ? (done / total) * 100 : 0;
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressText').textContent = done + ' / ' + total + ' tasks complete';
+}
+</script>
+</body>
+</html>
